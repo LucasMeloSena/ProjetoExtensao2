@@ -16,5 +16,25 @@ namespace Eduflow
         {
             InitializeComponent();
         }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string user = txtUser.Text;
+            string password = txtPassword.Text;
+
+            if (user == null || user == "" || password == null || password == "")
+            {
+                MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+            else
+            {
+                
+            }
+        }
     }
 }

@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/Eduflow
+/Eduflow/obj/Debug
+/Eduflow/.vs
+/Eduflow/bin/Debug

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Eduflow.utils.enums;
+using Eduflow.views;
 
 namespace Eduflow
 {
@@ -33,7 +35,22 @@ namespace Eduflow
             } 
             else
             {
-                
+                UserType userType = UserType.Admin;
+
+                if (userType == UserType.Admin)
+                {
+                    AdminHome adminHomeForm = new AdminHome();
+                    adminHomeForm.Show();
+                    this.Hide();
+                } else if (userType == UserType.Caretaker)
+                {
+                    CaretakerHome caretakerHomeForm = new CaretakerHome();
+                    caretakerHomeForm.Show();
+                    this.Hide();
+                } else
+                {
+                    MessageBox.Show("Ocorreu um erro no sistema! Por favor, tente novamente mais tarde", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

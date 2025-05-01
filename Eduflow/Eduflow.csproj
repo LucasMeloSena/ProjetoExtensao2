@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="models\Admin.cs" />
     <Compile Include="models\Caretaker.cs" />
@@ -68,31 +68,58 @@
     </Compile>
     <Compile Include="utils\enums\Genre.cs" />
     <Compile Include="utils\enums\UserType.cs" />
-    <Compile Include="views\AdminHome.cs">
+    <Compile Include="views\Admin\Caretaker\CreateCaretaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\AdminHome.Designer.cs">
-      <DependentUpon>AdminHome.cs</DependentUpon>
+    <Compile Include="views\Admin\Caretaker\CreateCaretaker.Designer.cs">
+      <DependentUpon>CreateCaretaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\CaretakerHome.cs">
+    <Compile Include="views\Admin\Caretaker\ListCaretaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\CaretakerHome.Designer.cs">
-      <DependentUpon>CaretakerHome.cs</DependentUpon>
+    <Compile Include="views\Admin\Caretaker\ListCaretaker.Designer.cs">
+      <DependentUpon>ListCaretaker.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="views\Admin\Caretaker\UpdateCaretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Caretaker\UpdateCaretaker.Designer.cs">
+      <DependentUpon>UpdateCaretaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Caretaker\Caretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Caretaker\Caretaker.Designer.cs">
+      <DependentUpon>Caretaker.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\AdminHome.resx">
-      <DependentUpon>AdminHome.cs</DependentUpon>
+    <EmbeddedResource Include="views\Admin\Caretaker\CreateCaretaker.resx">
+      <DependentUpon>CreateCaretaker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\CaretakerHome.resx">
-      <DependentUpon>CaretakerHome.cs</DependentUpon>
+    <EmbeddedResource Include="views\Admin\Caretaker\ListCaretaker.resx">
+      <DependentUpon>ListCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Caretaker\UpdateCaretaker.resx">
+      <DependentUpon>UpdateCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Caretaker\Caretaker.resx">
+      <DependentUpon>Caretaker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

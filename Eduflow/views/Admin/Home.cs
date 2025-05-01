@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace Eduflow.views
 {
-    public partial class AdminHome : Form
+    public partial class Home : Form
     {
-        public AdminHome()
+        private Form lastForm;
+
+        public Home(Form lastForm)
         {
             InitializeComponent();
+            this.lastForm = lastForm;
         }
 
         private void AdminHome_Load(object sender, EventArgs e)
@@ -50,7 +53,9 @@ namespace Eduflow.views
 
         private void btnCaretakers_Click(object sender, EventArgs e)
         {
-
+            Caretaker caretakerHomeForm = new Caretaker(this);
+            caretakerHomeForm.Show();
+            this.Hide();
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
@@ -65,7 +70,8 @@ namespace Eduflow.views
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            lastForm.Show();
         }
     }
 }

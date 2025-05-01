@@ -1,6 +1,6 @@
 ﻿namespace Eduflow.views
 {
-    partial class AdminHome
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -164,7 +164,7 @@
             this.label1.Text = "Ultimas Observacoes Diarias";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // AdminHome
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,8 +177,8 @@
             this.Controls.Add(this.btnLogboox);
             this.Controls.Add(this.btnStudents);
             this.Controls.Add(this.btnCaretakers);
-            this.Name = "AdminHome";
-            this.Text = "Admin";
+            this.Name = "Home";
+            this.Text = "Admin - Home";
             this.Load += new System.EventHandler(this.AdminHome_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

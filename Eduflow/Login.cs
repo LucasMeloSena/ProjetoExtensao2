@@ -12,9 +12,9 @@ using Eduflow.views;
 
 namespace Eduflow
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -39,14 +39,12 @@ namespace Eduflow
 
                 if (userType == UserType.Admin)
                 {
-                    AdminHome adminHomeForm = new AdminHome();
-                    adminHomeForm.Show();
+                    Home adminHomeForm = new Home(this);
                     this.Hide();
+                    adminHomeForm.Show();
                 } else if (userType == UserType.Caretaker)
                 {
-                    CaretakerHome caretakerHomeForm = new CaretakerHome();
-                    caretakerHomeForm.Show();
-                    this.Hide();
+                    
                 } else
                 {
                     MessageBox.Show("Ocorreu um erro no sistema! Por favor, tente novamente mais tarde", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

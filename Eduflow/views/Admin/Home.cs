@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Eduflow.models;
+using Eduflow.views.Admin.Student;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Eduflow.views
 {
@@ -60,7 +63,9 @@ namespace Eduflow.views
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-
+            StudentForm studentForm = new StudentForm(this);
+            studentForm.Show();
+            this.Hide();
         }
 
         private void btnLogboox_Click(object sender, EventArgs e)

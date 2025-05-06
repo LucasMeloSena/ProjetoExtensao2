@@ -1,4 +1,5 @@
 ﻿using Eduflow.models;
+using Eduflow.views.Admin.Logbook;
 using Eduflow.views.Admin.Student;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,9 @@ namespace Eduflow.views
 
         private void btnLogboox_Click(object sender, EventArgs e)
         {
-
+            LogbookForm logbookForm = new LogbookForm(this);
+            logbookForm.Show();
+            this.Hide();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

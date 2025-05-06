@@ -98,6 +98,24 @@
     <Compile Include="views\Admin\Caretaker\Caretaker.Designer.cs">
       <DependentUpon>Caretaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Admin\Logbook\CreateObservationLogbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\CreateObservationLogbook.Designer.cs">
+      <DependentUpon>CreateObservationLogbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\LogbookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\LogbookForm.Designer.cs">
+      <DependentUpon>LogbookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\LogbookReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\LogbookReport.Designer.cs">
+      <DependentUpon>LogbookReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Admin\Student\CreateStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +162,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Caretaker\Caretaker.resx">
       <DependentUpon>Caretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Logbook\CreateObservationLogbook.resx">
+      <DependentUpon>CreateObservationLogbook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Logbook\LogbookForm.resx">
+      <DependentUpon>LogbookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Logbook\LogbookReport.resx">
+      <DependentUpon>LogbookReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Student\CreateStudent.resx">
       <DependentUpon>CreateStudent.cs</DependentUpon>

@@ -12,11 +12,11 @@ using Eduflow.views.Admin.Caretaker;
 
 namespace Eduflow.views
 {
-    public partial class Caretaker : Form
+    public partial class HomeCaretakerAdmin : Form
     {
         private Form lastForm;
 
-        public Caretaker(Form lastForm)
+        public HomeCaretakerAdmin(Form lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
@@ -27,11 +27,11 @@ namespace Eduflow.views
             lblName.Text = "Nome: Coordenador Geral";
             lblSchool.Text = "Escola: Escola X";
             
-            dataGridCa.ColumnCount = 3;
-            dataGridCa.Columns[0].Name = "id";
-            dataGridCa.Columns[0].Visible = false;
-            dataGridCa.Columns[1].Name = "Nome";
-            dataGridCa.Columns[2].Name = "Matricula";
+            dataGridCaretakers.ColumnCount = 3;
+            dataGridCaretakers.Columns[0].Name = "id";
+            dataGridCaretakers.Columns[0].Visible = false;
+            dataGridCaretakers.Columns[1].Name = "Nome";
+            dataGridCaretakers.Columns[2].Name = "Matricula";
 
             DataGridViewColumn actionsColumn = new DataGridViewColumn();
             actionsColumn.Name = "Acoes";
@@ -50,14 +50,14 @@ namespace Eduflow.views
                 "4321"
             };
 
-            dataGridCa.Rows.Add(row1);
-            dataGridCa.Rows.Add(row2);
-            dataGridCa.Columns.Add(actionsColumn);
+            dataGridCaretakers.Rows.Add(row1);
+            dataGridCaretakers.Rows.Add(row2);
+            dataGridCaretakers.Columns.Add(actionsColumn);
 
-            dataGridCa.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridCa.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridCa.RowTemplate.Height = 60;
-            dataGridCa.RowHeadersVisible = false;
+            dataGridCaretakers.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridCaretakers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridCaretakers.RowTemplate.Height = 60;
+            dataGridCaretakers.RowHeadersVisible = false;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace Eduflow.views
 
         private void dataGridCaretakers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridCa.Columns["Acoes"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridCaretakers.Columns["Acoes"].Index && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -100,9 +100,9 @@ namespace Eduflow.views
                     buttonWidth,
                     e.CellBounds.Height - 2 * spacing);
 
-                ButtonRenderer.DrawButton(e.Graphics, editButton, "🖊️", dataGridCa.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, deleteButton, "🗑", dataGridCa.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, viewButton, "👁", dataGridCa.Font, false, PushButtonState.Default);
+                ButtonRenderer.DrawButton(e.Graphics, editButton, "🖊️", dataGridCaretakers.Font, false, PushButtonState.Default);
+                ButtonRenderer.DrawButton(e.Graphics, deleteButton, "🗑", dataGridCaretakers.Font, false, PushButtonState.Default);
+                ButtonRenderer.DrawButton(e.Graphics, viewButton, "👁", dataGridCaretakers.Font, false, PushButtonState.Default);
 
                 e.Handled = true;
             }
@@ -110,13 +110,13 @@ namespace Eduflow.views
 
         private void dataGridCaretakers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridCa.Columns["Acoes"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == dataGridCaretakers.Columns["Acoes"].Index && e.RowIndex >= 0)
             {
-                var cellRect = dataGridCa.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                var cellRect = dataGridCaretakers.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
                 int buttonWidth = 24;
                 int spacing = 4;
-                int mouseX = dataGridCa.PointToClient(Cursor.Position).X - cellRect.X;
-                string id = dataGridCa.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                int mouseX = dataGridCaretakers.PointToClient(Cursor.Position).X - cellRect.X;
+                string id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value.ToString();
 
                 if (mouseX < buttonWidth + spacing)
                 {

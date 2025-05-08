@@ -57,7 +57,7 @@ namespace Eduflow.views
 
         private void btnCaretakers_Click(object sender, EventArgs e)
         {
-            Caretaker caretakerHomeForm = new Caretaker(this);
+            HomeCaretakerAdmin caretakerHomeForm = new HomeCaretakerAdmin(this);
             caretakerHomeForm.Show();
             this.Hide();
         }

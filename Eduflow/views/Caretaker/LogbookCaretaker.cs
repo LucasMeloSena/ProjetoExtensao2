@@ -7,25 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Eduflow.views.Admin.Logbook;
 
-namespace Eduflow.views.Admin.Logbook
+namespace Eduflow.views.Caretaker
 {
-    public partial class LogbookReport: Form
+    public partial class LogbookCaretaker : Form
     {
         private Form lastForm;
-        public LogbookReport(Form lastForm)
+
+        public LogbookCaretaker(Form lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            lastForm.Show();
-        }
-
-        private void LogbookReport_Load(object sender, EventArgs e)
+        private void LogbookCaretaker_Load(object sender, EventArgs e)
         {
             lblName.Text = "Nome: Cuidador X";
             lblSchool.Text = "Escola: Escola X";
@@ -40,10 +36,10 @@ namespace Eduflow.views.Admin.Logbook
 
             string[] row1 = new string[]
             {
-                "1", 
+                "1",
                 "04/08/2024",
                 "Prezados pais/responsáveis gostaria de informar que a o lanche do Daniel acabou caindo no chão e decidimos não deixar ele comer o que havia caído no chão. Fizemos para ele um misto quente mas aparentemente ele não gostou ...",
-                "Alice Neves", 
+                "Alice Neves",
                 "Visto"
             };
 
@@ -65,11 +61,17 @@ namespace Eduflow.views.Admin.Logbook
             dataGridLogbookReport.RowHeadersVisible = false;
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            lastForm.Show();
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            CreateObservationLogbook createObservationLogbook = new CreateObservationLogbook(this);
+            CreateLogbookCaretaker createLogbook = new CreateLogbookCaretaker(this);
             this.Hide();
-            createObservationLogbook.Show();
+            createLogbook.Show();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Eduflow
             } 
             else
             {
-                UserType userType = UserType.Admin;
+                UserType userType = UserType.Caretaker;
 
                 if (userType == UserType.Admin)
                 {
@@ -44,7 +44,9 @@ namespace Eduflow
                     adminHomeForm.Show();
                 } else if (userType == UserType.Caretaker)
                 {
-                    
+                   HomeCaretaker caretakerStudent = new HomeCaretaker(this);
+                   this.Hide();
+                   caretakerStudent.Show(); 
                 } else
                 {
                     MessageBox.Show("Ocorreu um erro no sistema! Por favor, tente novamente mais tarde", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

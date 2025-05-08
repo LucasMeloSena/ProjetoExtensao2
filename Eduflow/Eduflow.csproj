@@ -92,11 +92,11 @@
     <Compile Include="views\Admin\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Admin\Caretaker\Caretaker.cs">
+    <Compile Include="views\Admin\Caretaker\HomeCaretakerAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Admin\Caretaker\Caretaker.Designer.cs">
-      <DependentUpon>Caretaker.cs</DependentUpon>
+    <Compile Include="views\Admin\Caretaker\HomeCaretakerAdmin.Designer.cs">
+      <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Admin\Logbook\CreateObservationLogbook.cs">
       <SubType>Form</SubType>
@@ -140,6 +140,30 @@
     <Compile Include="views\Admin\Student\UpdateStudent.Designer.cs">
       <DependentUpon>UpdateStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Caretaker\CreateLogbookCaretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Caretaker\CreateLogbookCaretaker.Designer.cs">
+      <DependentUpon>CreateLogbookCaretaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Caretaker\HomeCaretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Caretaker\HomeCaretaker.Designer.cs">
+      <DependentUpon>HomeCaretaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Caretaker\ListStudentCaretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Caretaker\ListStudentCaretaker.Designer.cs">
+      <DependentUpon>ListStudentCaretaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Caretaker\LogbookCaretaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Caretaker\LogbookCaretaker.Designer.cs">
+      <DependentUpon>LogbookCaretaker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,8 +184,8 @@
     <EmbeddedResource Include="views\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Admin\Caretaker\Caretaker.resx">
-      <DependentUpon>Caretaker.cs</DependentUpon>
+    <EmbeddedResource Include="views\Admin\Caretaker\HomeCaretakerAdmin.resx">
+      <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Logbook\CreateObservationLogbook.resx">
       <DependentUpon>CreateObservationLogbook.cs</DependentUpon>
@@ -183,6 +207,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Student\UpdateStudent.resx">
       <DependentUpon>UpdateStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Caretaker\CreateLogbookCaretaker.resx">
+      <DependentUpon>CreateLogbookCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Caretaker\HomeCaretaker.resx">
+      <DependentUpon>HomeCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Caretaker\ListStudentCaretaker.resx">
+      <DependentUpon>ListStudentCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Caretaker\LogbookCaretaker.resx">
+      <DependentUpon>LogbookCaretaker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

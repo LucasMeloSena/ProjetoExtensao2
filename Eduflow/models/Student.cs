@@ -18,9 +18,9 @@ namespace Eduflow.models
         public string registration { get; }
         public DateTime bornDate { get; }
         public DateTime registrationDate { get; }
-        public string groupId { get; }
+        public string classId { get; }
 
-        public Student(string id, string name, int age, Genre genre, string disabilities, string restrictions, string registration, DateTime bornDate, DateTime registrationDate, string groupId)
+        public Student(string id, string name, int age, Genre genre, string disabilities, string restrictions, string registration, DateTime bornDate, DateTime registrationDate, string classId)
         {
             this.id = id;
             this.name = name;
@@ -31,7 +31,7 @@ namespace Eduflow.models
             this.registration = registration;
             this.bornDate = bornDate;
             this.registrationDate = registrationDate;
-            this.groupId = groupId;
+            this.classId = classId;
         }
     }
 }

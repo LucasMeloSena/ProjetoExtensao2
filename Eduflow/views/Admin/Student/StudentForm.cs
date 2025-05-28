@@ -9,17 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Eduflow.models;
 
 namespace Eduflow.views.Admin.Student
 {
     public partial class StudentForm: Form
     {
         private Form lastForm;
+        private Eduflow.models.Admin admin;
 
-        public StudentForm(Form lastForm)
+        public StudentForm(Form lastForm, models.Admin admin)
         {
             InitializeComponent();
             this.lastForm = lastForm;
+            this.admin = admin;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -37,8 +40,8 @@ namespace Eduflow.views.Admin.Student
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            lblName.Text = "Nome: Coordenador Geral";
-            lblSchool.Text = "Escola: Escola X";
+            lblName.Text = $"Nome: {admin.name}";
+            lblSchool.Text = $"Escola: {admin.schoolName}";
 
             dataGridStudent.ColumnCount = 4;
             dataGridStudent.Columns[0].Name = "id";

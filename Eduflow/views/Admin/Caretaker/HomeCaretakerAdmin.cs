@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Eduflow.models;
 using Eduflow.views.Admin.Caretaker;
 
 namespace Eduflow.views
@@ -15,18 +16,20 @@ namespace Eduflow.views
     public partial class HomeCaretakerAdmin : Form
     {
         private Form lastForm;
+        private Eduflow.models.Admin admin;
 
-        public HomeCaretakerAdmin(Form lastForm)
+        public HomeCaretakerAdmin(Form lastForm, Eduflow.models.Admin admin)
         {
             InitializeComponent();
             this.lastForm = lastForm;
+            this.admin = admin;
         }
 
         private void Caretaker_Load(object sender, EventArgs e)
         {
-            lblName.Text = "Nome: Coordenador Geral";
-            lblSchool.Text = "Escola: Escola X";
-            
+            lblName.Text = $"Nome: {admin.name}";
+            lblSchool.Text = $"Escola: {admin.schoolName}";
+
             dataGridCaretakers.ColumnCount = 3;
             dataGridCaretakers.Columns[0].Name = "id";
             dataGridCaretakers.Columns[0].Visible = false;

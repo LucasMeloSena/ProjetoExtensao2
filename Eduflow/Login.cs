@@ -44,7 +44,9 @@ namespace Eduflow
 
                     if (user.type == UserType.ADMIN)
                     {
-                        Home adminHomeForm = new Home(this);
+                        AdminBd adminBd = new AdminBd();
+                        Admin admin = adminBd.getAdmin(user.id);
+                        Home adminHomeForm = new Home(this, admin);
                         this.Hide();
                         adminHomeForm.Show();
                     }

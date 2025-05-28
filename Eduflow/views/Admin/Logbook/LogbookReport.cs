@@ -13,10 +13,12 @@ namespace Eduflow.views.Admin.Logbook
     public partial class LogbookReport: Form
     {
         private Form lastForm;
-        public LogbookReport(Form lastForm)
+        private models.Admin admin;
+        public LogbookReport(Form lastForm, models.Admin admin)
         {
             InitializeComponent();
             this.lastForm = lastForm;
+            this.admin = admin;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -27,8 +29,8 @@ namespace Eduflow.views.Admin.Logbook
 
         private void LogbookReport_Load(object sender, EventArgs e)
         {
-            lblName.Text = "Nome: Cuidador X";
-            lblSchool.Text = "Escola: Escola X";
+            lblName.Text = $"Nome: {admin.name}";
+            lblSchool.Text = $"Escola: {admin.schoolName}";
 
             dataGridLogbookReport.ColumnCount = 5;
             dataGridLogbookReport.Columns[0].Name = "id";

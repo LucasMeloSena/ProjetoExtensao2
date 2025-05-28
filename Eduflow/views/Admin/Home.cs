@@ -19,16 +19,17 @@ namespace Eduflow.views
         private Form lastForm;
         private Eduflow.models.Admin admin;
 
-        public Home(Form lastForm)
+        public Home(Form lastForm, models.Admin admin)
         {
             InitializeComponent();
             this.lastForm = lastForm;
+            this.admin = admin;
         }
 
         private void AdminHome_Load(object sender, EventArgs e)
         {
-            lblName.Text = "Nome: Coordenador Geral";
-            lblSchool.Text = "Escola: Escola X";
+            lblName.Text = $"Nome: {admin.name}";
+            lblSchool.Text = $"Escola: {admin.schoolName}";
 
             dataGridLastInfo.ColumnCount = 3;
             dataGridLastInfo.Columns[0].Name = "Data";
@@ -58,21 +59,21 @@ namespace Eduflow.views
 
         private void btnCaretakers_Click(object sender, EventArgs e)
         {
-            HomeCaretakerAdmin caretakerHomeForm = new HomeCaretakerAdmin(this);
+            HomeCaretakerAdmin caretakerHomeForm = new HomeCaretakerAdmin(this, admin);
             caretakerHomeForm.Show();
             this.Hide();
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            StudentForm studentForm = new StudentForm(this);
+            StudentForm studentForm = new StudentForm(this, admin);
             studentForm.Show();
             this.Hide();
         }
 
         private void btnLogboox_Click(object sender, EventArgs e)
         {
-            LogbookForm logbookForm = new LogbookForm(this);
+            LogbookForm logbookForm = new LogbookForm(this, admin);
             logbookForm.Show();
             this.Hide();
         }

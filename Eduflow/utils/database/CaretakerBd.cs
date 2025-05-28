@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eduflow.utils.enums
+namespace Eduflow.utils.database
 {
-    public enum UserType
+    internal class CaretakerBd
     {
-        ADMIN,
-        CARETAKER
     }
 }

@@ -17,6 +17,7 @@ namespace Eduflow.views
     public partial class Home : Form
     {
         private Form lastForm;
+        private Eduflow.models.Admin admin;
 
         public Home(Form lastForm)
         {

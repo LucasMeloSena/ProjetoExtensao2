@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Eduflow.models;
+using Eduflow.utils.database;
 using Eduflow.utils.enums;
 using Eduflow.views;
 
@@ -26,31 +28,42 @@ namespace Eduflow
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string user = txtUser.Text;
+            string email = txtUser.Text;
             string password = txtPassword.Text;
 
-            if (user == null || user == "" || password == null || password == "")
+            if (email == null || email == "" || password == null || password == "")
             {
                 MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
             else
             {
-                UserType userType = UserType.Caretaker;
+                try
+                {
+                    UserBd userBd = new UserBd();
+                    User user = userBd.getUser(email, password);
 
-                if (userType == UserType.Admin)
-                {
-                    Home adminHomeForm = new Home(this);
-                    this.Hide();
-                    adminHomeForm.Show();
-                } else if (userType == UserType.Caretaker)
-                {
-                   HomeCaretaker caretakerStudent = new HomeCaretaker(this);
-                   this.Hide();
-                   caretakerStudent.Show(); 
-                } else
-                {
-                    MessageBox.Show("Ocorreu um erro no sistema! Por favor, tente novamente mais tarde", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (user.type == UserType.ADMIN)
+                    {
+                        Home adminHomeForm = new Home(this);
+                        this.Hide();
+                        adminHomeForm.Show();
+                    }
+                    else if (user.type == UserType.CARETAKER)
+                    {
+                        HomeCaretaker caretakerStudent = new HomeCaretaker(this);
+                        this.Hide();
+                        caretakerStudent.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tipo de usuario invalido! Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,45 @@ namespace Eduflow.utils.database
                         }
                         throw new Exception("Student not found");
                     }
+                }
+            }
+        }
+
+        public List<Student> getStudents()
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Aluno";
+                List<Student> students = new List<Student>();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        for (int i = 0; i < dataTable.Rows.Count; i++)
+                        {
+                            var id = dataTable.Rows[i][0].ToString();
+                            var name = dataTable.Rows[i][1].ToString();
+                            var age = int.Parse(dataTable.Rows[i][2].ToString());
+                            var genreStr = dataTable.Rows[i][3].ToString();
+                            Genre genre = (Genre)Enum.Parse(typeof(Genre), genreStr, true);
+                            var disabilities = dataTable.Rows[i][4].ToString();
+                            var restrictions = dataTable.Rows[i][5].ToString();
+                            var registration = dataTable.Rows[i][6].ToString();
+                            var bornDate = DateTime.Parse(dataTable.Rows[i][7].ToString());
+                            var registrationDate = DateTime.Parse(dataTable.Rows[i][8].ToString());
+                            var classId = dataTable.Rows[i][9].ToString();
+                            Student student = new Student(id, name, age, genre, disabilities, restrictions, registration, bornDate, registrationDate, classId);
+                            students.Add(student);
+                        }
+                        return students;
+                    }
+                    throw new Exception("Students not found");
+
                 }
             }
         }

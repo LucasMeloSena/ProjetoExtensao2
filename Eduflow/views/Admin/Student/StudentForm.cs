@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Eduflow.models;
+using Eduflow.utils.database;
 
 namespace Eduflow.views.Admin.Student
 {
@@ -43,37 +44,16 @@ namespace Eduflow.views.Admin.Student
             lblName.Text = $"Nome: {admin.name}";
             lblSchool.Text = $"Escola: {admin.schoolName}";
 
-            dataGridStudent.ColumnCount = 4;
-            dataGridStudent.Columns[0].Name = "id";
-            dataGridStudent.Columns[0].Visible = false;
-            dataGridStudent.Columns[1].Name = "Nome";
-            dataGridStudent.Columns[2].Name = "Matricula";
-            dataGridStudent.Columns[3].Name = "Responsavel";
-                
-            DataGridViewColumn actionsColumn = new DataGridViewColumn();
-            actionsColumn.Name = "Acoes";
-            actionsColumn.HeaderText = "Acoes";
-            actionsColumn.CellTemplate = new DataGridViewTextBoxCell();
+            dataGridStudent.Rows.Clear();
+            dataGridStudent.CellContentClick += dataGridStudent_CellContentClick;
 
-            string[] row1 = new string[]
+            StudentBd studentBd = new StudentBd();
+            List<models.Student> students = studentBd.getStudents();
+
+            foreach (var student in students)
             {
-                "1",
-                "Maria Joana",
-                "PNMGF88", 
-                "John Doe"
-            };
-
-            string[] row2 = new string[]
-            {
-                "2",
-                "Letícia Carvalho",
-                "823SBND",
-                "John Doe II"
-            };
-
-            dataGridStudent.Rows.Add(row1);
-            dataGridStudent.Rows.Add(row2);
-            dataGridStudent.Columns.Add(actionsColumn);
+                dataGridStudent.Rows.Add(student.id, student.name, student.registration, student.age, "Expandir", "Editar");
+            }
 
             dataGridStudent.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridStudent.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -81,79 +61,27 @@ namespace Eduflow.views.Admin.Student
             dataGridStudent.RowHeadersVisible = false;
         }
 
-        private void dataGridStudent_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dataGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridStudent.Columns["Acoes"].Index && e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            string columnName = dataGridStudent.Columns[e.ColumnIndex].Name;
+            var id = dataGridStudent.Rows[e.RowIndex].Cells["id"].Value;
+
+            if (columnName == "Expandir")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                int buttonWidth = 24;
-                int spacing = 4;
-
-                Rectangle editButton = new Rectangle(
-                    e.CellBounds.Left + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                Rectangle deleteButton = new Rectangle(
-                    editButton.Right + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                Rectangle viewButton = new Rectangle(
-                    deleteButton.Right + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                ButtonRenderer.DrawButton(e.Graphics, editButton, "🖊️", dataGridStudent.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, deleteButton, "🗑", dataGridStudent.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, viewButton, "👁", dataGridStudent.Font, false, PushButtonState.Default);
-
-                e.Handled = true;
+                ListStudent listStudentForm = new ListStudent(this, id.ToString());
+                this.Hide();
+                listStudentForm.Show();
+            }
+            else if (columnName == "Editar")
+            {
+                UpdateStudent updateStudentForm = new UpdateStudent(this, id.ToString());
+                this.Hide();
+                updateStudentForm.Show();
             }
         }
 
-        private void dataGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridStudent.Columns["Acoes"].Index && e.RowIndex >= 0)
-            {
-                var cellRect = dataGridStudent.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                int buttonWidth = 24;
-                int spacing = 4;
-                int mouseX =
-                    dataGridStudent.PointToClient(Cursor.Position).X - cellRect.X;
-                string id = dataGridStudent.Rows[e.RowIndex].Cells["id"].Value.ToString();
 
-                if (mouseX < buttonWidth + spacing)
-                {
-                    UpdateStudent updateStudentForm = new UpdateStudent(this, id);
-                    this.Hide();
-                    updateStudentForm.Show();
-                }
-                else if (mouseX < 2 * (buttonWidth + spacing))
-                {
-                    DialogResult result = MessageBox.Show(
-                        $"Tem certeza que deseja excluir o Aluno?",
-                        "Confirmação de Exclusão",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
-
-                    if (result == DialogResult.Yes)
-                    {
-
-                    }
-                }
-                else if (mouseX < 3 * (buttonWidth + spacing))
-                {
-                    ListStudent listStudentForm = new ListStudent(this, id);
-                    this.Hide();
-                    listStudentForm.Show();
-                }
-            }
-        }
     }
 }

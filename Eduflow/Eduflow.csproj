@@ -121,6 +121,9 @@
     <Compile Include="utils\database\AdminBd.cs" />
     <Compile Include="utils\database\CaretakerBd.cs" />
     <Compile Include="utils\database\Conn.cs" />
+    <Compile Include="utils\database\GroupBd.cs" />
+    <Compile Include="utils\database\LogbookBd.cs" />
+    <Compile Include="utils\database\StudentBd.cs" />
     <Compile Include="utils\database\UserBd.cs" />
     <Compile Include="utils\enums\Genre.cs" />
     <Compile Include="utils\enums\UserType.cs" />

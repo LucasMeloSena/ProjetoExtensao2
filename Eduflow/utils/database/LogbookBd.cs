@@ -12,7 +12,7 @@ namespace Eduflow.utils.database
     {
         private database.Conn db;
 
-        public Logbook getLogbook(string? caretakerId, string? studentId)
+        public Logbook getLogbook(string caretakerId, string studentId)
         {
             db = new database.Conn();
             using (var conn = new MySqlConnection(db.getConnectionString()))
@@ -28,11 +28,9 @@ namespace Eduflow.utils.database
                         while (reader.Read())
                         {
                             var id = reader["id"].ToString();
-                            var registerDate = reader["data_cadastro"].ToString();
+                            var registerDate = DateTime.Parse(reader["data_cadastro"].ToString());
                             var observation = reader["observacao"].ToString();
-                            var caretakerId = reader["idCuidador"].ToString();
-                            var studentId = reader["idAluno"].ToString();
-                            return new Logbook(id, registerDate, observation, caretakerId, studentId)
+                            return new Logbook(id, registerDate, observation, caretakerId, studentId);
                         }
                         throw new Exception("Logbook not found");
                     }

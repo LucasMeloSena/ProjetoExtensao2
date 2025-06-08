@@ -67,7 +67,7 @@
             this.btnAddCaretaker.Name = "btnAddCaretaker";
             this.btnAddCaretaker.Size = new System.Drawing.Size(272, 52);
             this.btnAddCaretaker.TabIndex = 7;
-            this.btnAddCaretaker.Text = "Adicionar Cuidador";
+            this.btnAddCaretaker.Text = "Adicionar Aluno";
             this.btnAddCaretaker.UseVisualStyleBackColor = true;
             this.btnAddCaretaker.Click += new System.EventHandler(this.btnAddCaretaker_Click);
             // 

@@ -171,9 +171,9 @@
             this.label5.Location = new System.Drawing.Point(80, 648);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 31);
+            this.label5.Size = new System.Drawing.Size(112, 31);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Sexo:";
+            this.label5.Text = "Genero:";
             // 
             // txtStudentRestrictions
             // 

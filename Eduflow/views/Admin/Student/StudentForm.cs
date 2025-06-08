@@ -44,6 +44,11 @@ namespace Eduflow.views.Admin.Student
             lblName.Text = $"Nome: {admin.name}";
             lblSchool.Text = $"Escola: {admin.schoolName}";
 
+            searchStudentsAndFillDataGrid();
+        }
+
+        public void searchStudentsAndFillDataGrid()
+        {
             dataGridStudent.Rows.Clear();
             dataGridStudent.CellContentClick += dataGridStudent_CellContentClick;
 

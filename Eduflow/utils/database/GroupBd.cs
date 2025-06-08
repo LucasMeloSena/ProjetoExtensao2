@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Eduflow.models;
+using Eduflow.utils.enums;
 using MySql.Data.MySqlClient;
 
 namespace Eduflow.utils.database
@@ -38,6 +39,29 @@ namespace Eduflow.utils.database
                     }
                     throw new Exception("Group not found");
 
+                }
+            }
+        }
+
+        public Group getGroup(string id)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Turma where id = ?id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var name = reader["nome"].ToString();
+                            return new Group(id, name);
+                        }
+                        throw new Exception("Group not found");
+                    }
                 }
             }
         }

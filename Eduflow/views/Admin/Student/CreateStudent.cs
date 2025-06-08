@@ -15,10 +15,10 @@ namespace Eduflow.views.Admin.Student
 {
     public partial class CreateStudent: Form
     {
-        private Form lastForm;
+        private StudentForm lastForm;
         private List<Group> groups;
 
-        public CreateStudent(Form lastForm)
+        public CreateStudent(StudentForm lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
@@ -75,6 +75,7 @@ namespace Eduflow.views.Admin.Student
                 StudentBd studentBd = new StudentBd();
                 studentBd.insertStudent(student);
                 MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lastForm.searchStudentsAndFillDataGrid();
                 this.Close();
                 lastForm.Show();
             }

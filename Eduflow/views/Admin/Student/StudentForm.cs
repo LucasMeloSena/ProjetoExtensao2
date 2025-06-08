@@ -76,14 +76,12 @@ namespace Eduflow.views.Admin.Student
             if (columnName == "Expandir")
             {
                 ListStudent listStudentForm = new ListStudent(this, id.ToString());
-                this.Hide();
-                listStudentForm.Show();
+                listStudentForm.ShowDialog();
             }
             else if (columnName == "Editar")
             {
                 UpdateStudent updateStudentForm = new UpdateStudent(this, id.ToString());
-                this.Hide();
-                updateStudentForm.Show();
+                updateStudentForm.ShowDialog();
             }
         }
 

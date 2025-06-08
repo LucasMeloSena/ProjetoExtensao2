@@ -110,5 +110,30 @@ namespace Eduflow.utils.database
                 }
             }
         }
+
+        public void updateStudent(Student student)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "UPDATE Aluno SET nome = ?nome, idade = ?idade, sexo = ?sexo, deficiencia = ?deficiencia, restricoes = ?restricoes," +
+                "matricula = ?matricula, data_nascimento = ?data_nascimento, data_matricula = ?data_matricula, idTurma = ?idTurma WHERE id = ?id;";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", student.id);
+                    cmd.Parameters.AddWithValue("?nome", student.name);
+                    cmd.Parameters.AddWithValue("?idade", student.age);
+                    cmd.Parameters.AddWithValue("?sexo", student.genre);
+                    cmd.Parameters.AddWithValue("?deficiencia", student.disabilities);
+                    cmd.Parameters.AddWithValue("?restricoes", student.restrictions);
+                    cmd.Parameters.AddWithValue("?matricula", student.registration);
+                    cmd.Parameters.AddWithValue("?data_nascimento", student.bornDate);
+                    cmd.Parameters.AddWithValue("?data_matricula", student.registrationDate);
+                    cmd.Parameters.AddWithValue("?idTurma", student.classId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }   

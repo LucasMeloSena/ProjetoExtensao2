@@ -49,29 +49,29 @@ namespace Eduflow.views.Admin.Student
 
         public void searchStudentsAndFillDataGrid()
         {
-            dataGridStudent.Rows.Clear();
-            dataGridStudent.CellContentClick += dataGridStudent_CellContentClick;
+            dataGridLogbookReport.Rows.Clear();
+            dataGridLogbookReport.CellContentClick += dataGridLogbookReport_CellContentClick;
 
             StudentBd studentBd = new StudentBd();
             List<models.Student> students = studentBd.getStudents();
 
             foreach (var student in students)
             {
-                dataGridStudent.Rows.Add(student.id, student.name, student.registration, student.age, "Expandir", "Editar");
+                dataGridLogbookReport.Rows.Add(student.id, student.name, student.registration, student.age, "Expandir", "Editar");
             }
 
-            dataGridStudent.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridStudent.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridStudent.RowTemplate.Height = 60;
-            dataGridStudent.RowHeadersVisible = false;
+            dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridLogbookReport.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridLogbookReport.RowTemplate.Height = 60;
+            dataGridLogbookReport.RowHeadersVisible = false;
         }
 
-        private void dataGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridLogbookReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            string columnName = dataGridStudent.Columns[e.ColumnIndex].Name;
-            var id = dataGridStudent.Rows[e.RowIndex].Cells["id"].Value;
+            string columnName = dataGridLogbookReport.Columns[e.ColumnIndex].Name;
+            var id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value;
 
             if (columnName == "Expandir")
             {

@@ -33,21 +33,26 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSchool = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridLogbookReport = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStudentName = new System.Windows.Forms.Label();
+            this.dataGridLogbookReport = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Caretaker = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(528, 16);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Location = new System.Drawing.Point(1056, 31);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(136, 27);
+            this.btnVoltar.Size = new System.Drawing.Size(272, 52);
             this.btnVoltar.TabIndex = 8;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -56,10 +61,10 @@
             // btnAdicionar
             // 
             this.btnAdicionar.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdicionar.Location = new System.Drawing.Point(528, 47);
-            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdicionar.Location = new System.Drawing.Point(1056, 90);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(136, 27);
+            this.btnAdicionar.Size = new System.Drawing.Size(272, 52);
             this.btnAdicionar.TabIndex = 9;
             this.btnAdicionar.Text = "Adicionar Observacao";
             this.btnAdicionar.UseVisualStyleBackColor = true;
@@ -70,11 +75,11 @@
             this.groupBox1.Controls.Add(this.lblSchool);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(172, 36);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(344, 69);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(300, 210);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(600, 404);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -82,32 +87,54 @@
             // 
             this.lblSchool.AutoSize = true;
             this.lblSchool.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchool.Location = new System.Drawing.Point(73, 181);
-            this.lblSchool.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSchool.Location = new System.Drawing.Point(146, 348);
+            this.lblSchool.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSchool.Name = "lblSchool";
-            this.lblSchool.Size = new System.Drawing.Size(0, 15);
+            this.lblSchool.Size = new System.Drawing.Size(0, 27);
             this.lblSchool.TabIndex = 2;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(73, 155);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(146, 298);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 15);
+            this.lblName.Size = new System.Drawing.Size(0, 27);
             this.lblName.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Eduflow.Properties.Resources.profile;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(184, 54);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(224, 225);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 300);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(0, 577);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(678, 18);
+            this.label1.Size = new System.Drawing.Size(778, 35);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Diario de Bordo do Aluno: Daniel Molo";
+            this.label1.Text = "Diario de Bordo do Aluno:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblStudentName
+            // 
+            this.lblStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudentName.Location = new System.Drawing.Point(666, 577);
+            this.lblStudentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStudentName.Name = "lblStudentName";
+            this.lblStudentName.Size = new System.Drawing.Size(520, 35);
+            this.lblStudentName.TabIndex = 15;
+            this.lblStudentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridLogbookReport
             // 
@@ -116,46 +143,70 @@
             this.dataGridLogbookReport.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridLogbookReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridLogbookReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLogbookReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.RegistrationDate,
+            this.Observation,
+            this.Caretaker});
             this.dataGridLogbookReport.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridLogbookReport.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridLogbookReport.Location = new System.Drawing.Point(0, 330);
-            this.dataGridLogbookReport.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridLogbookReport.Location = new System.Drawing.Point(0, 635);
+            this.dataGridLogbookReport.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridLogbookReport.Name = "dataGridLogbookReport";
             this.dataGridLogbookReport.ReadOnly = true;
             this.dataGridLogbookReport.RowHeadersWidth = 82;
             this.dataGridLogbookReport.RowTemplate.Height = 33;
-            this.dataGridLogbookReport.Size = new System.Drawing.Size(678, 193);
-            this.dataGridLogbookReport.TabIndex = 14;
+            this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
+            this.dataGridLogbookReport.TabIndex = 16;
             // 
-            // pictureBox1
+            // id
             // 
-            this.pictureBox1.Image = global::Eduflow.Properties.Resources.profile;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(92, 28);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 117);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 10;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // RegistrationDate
+            // 
+            this.RegistrationDate.HeaderText = "Data de Registro";
+            this.RegistrationDate.MinimumWidth = 10;
+            this.RegistrationDate.Name = "RegistrationDate";
+            this.RegistrationDate.ReadOnly = true;
+            // 
+            // Observation
+            // 
+            this.Observation.HeaderText = "Observação";
+            this.Observation.MinimumWidth = 10;
+            this.Observation.Name = "Observation";
+            this.Observation.ReadOnly = true;
+            // 
+            // Caretaker
+            // 
+            this.Caretaker.HeaderText = "Cuidador";
+            this.Caretaker.MinimumWidth = 10;
+            this.Caretaker.Name = "Caretaker";
+            this.Caretaker.ReadOnly = true;
             // 
             // LogbookReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 523);
+            this.ClientSize = new System.Drawing.Size(1356, 1006);
             this.Controls.Add(this.dataGridLogbookReport);
+            this.Controls.Add(this.lblStudentName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnVoltar);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LogbookReport";
             this.Text = "LogbookReport";
             this.Load += new System.EventHandler(this.LogbookReport_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -169,6 +220,11 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStudentName;
         private System.Windows.Forms.DataGridView dataGridLogbookReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Caretaker;
     }
 }

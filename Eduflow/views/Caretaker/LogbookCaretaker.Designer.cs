@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridLogbookReport = new System.Windows.Forms.DataGridView();
+            this.dataGridLogbookReportReport = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSchool = new System.Windows.Forms.Label();
@@ -36,28 +36,28 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReportReport)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridLogbookReport
+            // dataGridLogbookReportReport
             // 
-            this.dataGridLogbookReport.AllowUserToAddRows = false;
-            this.dataGridLogbookReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridLogbookReport.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridLogbookReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridLogbookReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridLogbookReport.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridLogbookReport.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridLogbookReport.Location = new System.Drawing.Point(0, 635);
-            this.dataGridLogbookReport.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridLogbookReport.Name = "dataGridLogbookReport";
-            this.dataGridLogbookReport.ReadOnly = true;
-            this.dataGridLogbookReport.RowHeadersWidth = 82;
-            this.dataGridLogbookReport.RowTemplate.Height = 33;
-            this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
-            this.dataGridLogbookReport.TabIndex = 19;
+            this.dataGridLogbookReportReport.AllowUserToAddRows = false;
+            this.dataGridLogbookReportReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridLogbookReportReport.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridLogbookReportReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridLogbookReportReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLogbookReportReport.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridLogbookReportReport.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridLogbookReportReport.Location = new System.Drawing.Point(0, 635);
+            this.dataGridLogbookReportReport.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridLogbookReportReport.Name = "dataGridLogbookReportReport";
+            this.dataGridLogbookReportReport.ReadOnly = true;
+            this.dataGridLogbookReportReport.RowHeadersWidth = 82;
+            this.dataGridLogbookReportReport.RowTemplate.Height = 33;
+            this.dataGridLogbookReportReport.Size = new System.Drawing.Size(1356, 371);
+            this.dataGridLogbookReportReport.TabIndex = 19;
             // 
             // label1
             // 
@@ -144,7 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 1006);
-            this.Controls.Add(this.dataGridLogbookReport);
+            this.Controls.Add(this.dataGridLogbookReportReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAdicionar);
@@ -152,7 +152,7 @@
             this.Name = "LogbookCaretaker";
             this.Text = "Diario de Bordo - Cuidador";
             this.Load += new System.EventHandler(this.LogbookCaretaker_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReportReport)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -162,7 +162,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridLogbookReport;
+        private System.Windows.Forms.DataGridView dataGridLogbookReportReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblSchool;

@@ -26,13 +26,13 @@ namespace Eduflow.views.Caretaker
             lblName.Text = "Nome: Cuidador X";
             lblSchool.Text = "Escola: Escola X";
 
-            dataGridLogbookReport.ColumnCount = 5;
-            dataGridLogbookReport.Columns[0].Name = "id";
-            dataGridLogbookReport.Columns[0].Visible = false;
-            dataGridLogbookReport.Columns[1].Name = "Data da Observacao";
-            dataGridLogbookReport.Columns[2].Name = "Observacao";
-            dataGridLogbookReport.Columns[3].Name = "Cuidador Responsavel";
-            dataGridLogbookReport.Columns[4].Name = "Situacao";
+            dataGridLogbookReportReport.ColumnCount = 5;
+            dataGridLogbookReportReport.Columns[0].Name = "id";
+            dataGridLogbookReportReport.Columns[0].Visible = false;
+            dataGridLogbookReportReport.Columns[1].Name = "Data da Observacao";
+            dataGridLogbookReportReport.Columns[2].Name = "Observacao";
+            dataGridLogbookReportReport.Columns[3].Name = "Cuidador Responsavel";
+            dataGridLogbookReportReport.Columns[4].Name = "Situacao";
 
             string[] row1 = new string[]
             {
@@ -52,13 +52,13 @@ namespace Eduflow.views.Caretaker
                 "Visto"
             };
 
-            dataGridLogbookReport.Rows.Add(row1);
-            dataGridLogbookReport.Rows.Add(row2);
+            dataGridLogbookReportReport.Rows.Add(row1);
+            dataGridLogbookReportReport.Rows.Add(row2);
 
-            dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridLogbookReport.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridLogbookReport.RowTemplate.Height = 60;
-            dataGridLogbookReport.RowHeadersVisible = false;
+            dataGridLogbookReportReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridLogbookReportReport.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridLogbookReportReport.RowTemplate.Height = 60;
+            dataGridLogbookReportReport.RowHeadersVisible = false;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

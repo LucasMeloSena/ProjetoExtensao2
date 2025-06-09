@@ -57,5 +57,23 @@ namespace Eduflow.utils.database
             }
         }
 
+        public void insertIntoLogs(LoginLog loginLog)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "INSERT INTO LoginLogs (id, data_login, idUsuario) VALUES  " +
+                    "(?id, ?data_login, ?idUsuario);";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", loginLog.id);
+                    cmd.Parameters.AddWithValue("?data_login", loginLog.loginDate);
+                    cmd.Parameters.AddWithValue("?idUsuario", loginLog.idUser);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

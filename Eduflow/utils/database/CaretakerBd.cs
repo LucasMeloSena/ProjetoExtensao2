@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,24 @@ namespace Eduflow.utils.database
                         }
                         throw new Exception("Caretaker not found");
                     }
+                }
+            }
+        }
+
+        public void insertCaretaker(Caretaker caretaker)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "INSERT INTO Cuidador (id, nome, matricula, idUsuario) VALUES  " + "(?id, ?nome, ?matricula, ?idUsuario)";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", caretaker.id);
+                    cmd.Parameters.AddWithValue("?nome", caretaker.name);
+                    cmd.Parameters.AddWithValue("?matricula", caretaker.registration);
+                    cmd.Parameters.AddWithValue("?idUsuario", caretaker.userId);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

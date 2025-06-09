@@ -14,8 +14,9 @@ namespace Eduflow.models
         public string caretakerId { get; }
         public string caretakerName { get; }
         public string studentId { get; }
+        public string studentName { get; }
 
-        public Logbook(string id, DateTime registerDate, string observation, string caretakerId, string carekaterName, string studentId)
+        public Logbook(string id, DateTime registerDate, string observation, string caretakerId, string carekaterName, string studentId, string studentName)
         {
             this.id = id;
             this.registerDate = registerDate;
@@ -23,6 +24,7 @@ namespace Eduflow.models
             this.caretakerId = caretakerId;
             this.caretakerName = carekaterName;
             this.studentId = studentId;
+            this.studentName = studentName;
         }
     }
 }

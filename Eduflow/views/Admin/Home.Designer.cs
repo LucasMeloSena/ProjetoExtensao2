@@ -37,11 +37,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataGridLastInfo = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridLogbookReport = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Caretaker = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLastInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCaretakers
@@ -137,40 +142,83 @@
             this.listBox1.Size = new System.Drawing.Size(120, 79);
             this.listBox1.TabIndex = 5;
             // 
-            // dataGridLastInfo
-            // 
-            this.dataGridLastInfo.AllowUserToAddRows = false;
-            this.dataGridLastInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridLastInfo.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridLastInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridLastInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridLastInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridLastInfo.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridLastInfo.Location = new System.Drawing.Point(0, 566);
-            this.dataGridLastInfo.Name = "dataGridLastInfo";
-            this.dataGridLastInfo.ReadOnly = true;
-            this.dataGridLastInfo.RowHeadersWidth = 82;
-            this.dataGridLastInfo.RowTemplate.Height = 33;
-            this.dataGridLastInfo.Size = new System.Drawing.Size(1356, 440);
-            this.dataGridLastInfo.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 516);
+            this.label1.Location = new System.Drawing.Point(-12, 566);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1356, 35);
             this.label1.TabIndex = 8;
             this.label1.Text = "Ultimas Observacoes Diarias";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dataGridLogbookReport
+            // 
+            this.dataGridLogbookReport.AllowUserToAddRows = false;
+            this.dataGridLogbookReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridLogbookReport.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridLogbookReport.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridLogbookReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLogbookReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.RegistrationDate,
+            this.Observation,
+            this.Aluno,
+            this.Caretaker});
+            this.dataGridLogbookReport.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridLogbookReport.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridLogbookReport.Location = new System.Drawing.Point(0, 635);
+            this.dataGridLogbookReport.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridLogbookReport.Name = "dataGridLogbookReport";
+            this.dataGridLogbookReport.ReadOnly = true;
+            this.dataGridLogbookReport.RowHeadersWidth = 82;
+            this.dataGridLogbookReport.RowTemplate.Height = 33;
+            this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
+            this.dataGridLogbookReport.TabIndex = 17;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 10;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // RegistrationDate
+            // 
+            this.RegistrationDate.HeaderText = "Data de Registro";
+            this.RegistrationDate.MinimumWidth = 10;
+            this.RegistrationDate.Name = "RegistrationDate";
+            this.RegistrationDate.ReadOnly = true;
+            // 
+            // Observation
+            // 
+            this.Observation.HeaderText = "Observação";
+            this.Observation.MinimumWidth = 10;
+            this.Observation.Name = "Observation";
+            this.Observation.ReadOnly = true;
+            // 
+            // Aluno
+            // 
+            this.Aluno.HeaderText = "Aluno";
+            this.Aluno.MinimumWidth = 10;
+            this.Aluno.Name = "Aluno";
+            this.Aluno.ReadOnly = true;
+            // 
+            // Caretaker
+            // 
+            this.Caretaker.HeaderText = "Cuidador";
+            this.Caretaker.MinimumWidth = 10;
+            this.Caretaker.Name = "Caretaker";
+            this.Caretaker.ReadOnly = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 1006);
+            this.Controls.Add(this.dataGridLogbookReport);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridLastInfo);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBox1);
@@ -183,7 +231,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLastInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,7 +247,12 @@
         private System.Windows.Forms.Label lblSchool;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.DataGridView dataGridLastInfo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridLogbookReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Caretaker;
     }
 }

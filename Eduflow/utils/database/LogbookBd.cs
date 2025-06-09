@@ -43,7 +43,51 @@ namespace Eduflow.utils.database
                             var caretakerId = reader.GetString("idCuidador");
                             var caretakerName = reader.GetString("nomeCuidador");
 
-                            var logbook = new Logbook(id, registerDate, observation, caretakerId, caretakerName, studentId);
+                            var logbook = new Logbook(id, registerDate, observation, caretakerId, caretakerName, studentId, null);
+                            logBooks.Add(logbook);
+                        }
+                    }
+                }
+
+                return logBooks;
+            }
+        }
+
+        public List<Logbook> getLastLogbooksRegistered()
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = @"
+                        SELECT
+                            db.id,
+                            db.data_cadastro,
+                            db.observacao,
+                            db.idCuidador,
+                            db.idAluno,
+                            c.nome AS nomeCuidador,
+                            a.nome AS nomeAluno
+                            FROM DiarioDeBordo db INNER JOIN Cuidador c ON db.idCuidador = c.id
+                            INNER JOIN Aluno a ON db.idAluno = a.id
+                            ORDER BY data_cadastro DESC
+                            LIMIT 10;";
+                List<Logbook> logBooks = new List<Logbook>();
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var id = reader.GetString("id");
+                            var registerDate = reader.GetDateTime("data_cadastro");
+                            var observation = reader.GetString("observacao");
+                            var caretakerId = reader.GetString("idCuidador");
+                            var caretakerName = reader.GetString("nomeCuidador");
+                            var studentId = reader.GetString("idAluno");
+                            var studentName = reader.GetString("nomeAluno");
+                            var logbook = new Logbook(id, registerDate, observation, caretakerId, caretakerName, studentId, studentName);
                             logBooks.Add(logbook);
                         }
                     }

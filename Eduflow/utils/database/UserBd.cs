@@ -9,7 +9,7 @@ namespace Eduflow.utils.database
     {
         private database.Conn db;
 
-        public User getUser(String email, String password)
+        public User getUser(string email, string password)
         {
             db = new database.Conn();
             using (var conn = new MySqlConnection(db.getConnectionString()))
@@ -35,6 +35,5 @@ namespace Eduflow.utils.database
                 }
             }
         }
-
     }
 }

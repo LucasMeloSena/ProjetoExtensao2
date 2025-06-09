@@ -41,6 +41,8 @@ namespace Eduflow
                 {
                     UserBd userBd = new UserBd();
                     User user = userBd.getUser(email, password);
+                    LoginLog loginLog = new LoginLog(Guid.NewGuid().ToString(), DateTime.Now, user.id);
+                    userBd.insertIntoLogs(loginLog);
 
                     if (user.type == UserType.ADMIN)
                     {

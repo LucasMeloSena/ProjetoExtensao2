@@ -109,6 +109,7 @@
     <Compile Include="models\Caretaker.cs" />
     <Compile Include="models\Group.cs" />
     <Compile Include="models\Logbook.cs" />
+    <Compile Include="models\LoginLog.cs" />
     <Compile Include="models\Student.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="Program.cs" />

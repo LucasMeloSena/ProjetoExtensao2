@@ -26,6 +26,12 @@ namespace Eduflow.views.Admin.Student
 
         private void CreateStudent_Load(object sender, EventArgs e)
         {
+            inputBornDate.Format = DateTimePickerFormat.Custom;
+            inputBornDate.CustomFormat = "dd/MM/yyyy";
+
+            inputRegisterDate.Format = DateTimePickerFormat.Custom;
+            inputRegisterDate.CustomFormat = "dd/MM/yyyy";
+
             GroupBd groupBd = new GroupBd();
             this.groups = groupBd.getGroups();
             cmbGroup.DataSource = this.groups;
@@ -38,7 +44,6 @@ namespace Eduflow.views.Admin.Student
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -77,7 +82,6 @@ namespace Eduflow.views.Admin.Student
                 MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lastForm.searchStudentsAndFillDataGrid();
                 this.Close();
-                lastForm.Show();
             }
             catch (Exception ex)
             {

@@ -25,7 +25,6 @@ namespace Eduflow.views.Admin.Caretaker
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
     }
 }

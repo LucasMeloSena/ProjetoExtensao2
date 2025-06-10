@@ -37,7 +37,6 @@ namespace Eduflow.views.Admin.Logbook
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         public void searchStudentsAndFillDataGrid()

@@ -39,8 +39,8 @@ namespace Eduflow.views.Admin.Student
             txtRegistration.Text = student.registration;
             txtAge.Text = student.age.ToString();
             txtRestrictions.Text = student.restrictions;
-            txtBornDate.Text = student.bornDate.ToString("dd/MM/yyyy");
-            txtRegistrationDate.Text = student.registrationDate.ToString("dd/MM/yyyy");
+            txtBornDate.Text = student.bornDate.ToString("d");
+            txtRegistrationDate.Text = student.registrationDate.ToString("d");
             txtGenre.Text = student.genre.ToString();
             txtDisabilities.Text = student.disabilities.ToString();
             txtGroup.Text = group.name;
@@ -49,7 +49,6 @@ namespace Eduflow.views.Admin.Student
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
     }
 }

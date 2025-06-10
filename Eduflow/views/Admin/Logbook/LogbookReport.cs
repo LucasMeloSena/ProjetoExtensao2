@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Eduflow.utils.database;
+using Eduflow.views.Admin.Student;
 
 namespace Eduflow.views.Admin.Logbook
 {
@@ -27,7 +28,6 @@ namespace Eduflow.views.Admin.Logbook
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void LogbookReport_Load(object sender, EventArgs e)
@@ -39,6 +39,11 @@ namespace Eduflow.views.Admin.Logbook
             lblSchool.Text = $"Escola: {admin.schoolName}";
             lblStudentName.Text = student.name;
 
+            searchLogbooks();
+        }
+
+        public void searchLogbooks()
+        {
             LogbookBd logbookBd = new LogbookBd();
             List<models.Logbook> logbooks = logbookBd.getLogbooksByStudent(studentId);
 
@@ -46,7 +51,7 @@ namespace Eduflow.views.Admin.Logbook
 
             foreach (var logbook in logbooks)
             {
-                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("dd/MM/yyyy"), logbook.observation, logbook.caretakerName);
+                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("d"), logbook.observation, logbook.caretakerName, "Editar", "Excluir");
             }
 
             dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -55,11 +60,27 @@ namespace Eduflow.views.Admin.Logbook
             dataGridLogbookReport.RowHeadersVisible = false;
         }
 
+        private void dataGridLogbookReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string columnName = dataGridLogbookReport.Columns[e.ColumnIndex].Name;
+            var id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value;
+
+            if (columnName == "Editar")
+            {
+                
+            }
+            else if (columnName == "Excluir")
+            {
+               
+            }
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            CreateObservationLogbook createObservationLogbook = new CreateObservationLogbook(this);
-            this.Hide();
-            createObservationLogbook.Show();
+            RegisterLogbook createObservationLogbook = new RegisterLogbook(this);
+            createObservationLogbook.ShowDialog();
         }
     }
 }

@@ -49,14 +49,14 @@ namespace Eduflow
                         AdminBd adminBd = new AdminBd();
                         Admin admin = adminBd.getAdmin(user.id);
                         Home adminHomeForm = new Home(this, admin);
-                        this.Hide();
-                        adminHomeForm.Show();
+                       
+                        adminHomeForm.ShowDialog();
                     }
                     else if (user.type == UserType.CARETAKER)
                     {
                         HomeCaretaker caretakerStudent = new HomeCaretaker(this);
-                        this.Hide();
-                        caretakerStudent.Show();
+                       
+                        caretakerStudent.ShowDialog();
                     }
                     else
                     {

@@ -39,7 +39,7 @@ namespace Eduflow.views
 
             foreach (var logbook in logbooks)
             {
-                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("dd/MM/yyyy"), logbook.observation, logbook.studentName, logbook.caretakerName);
+                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("d"), logbook.observation, logbook.studentName, logbook.caretakerName);
             }
 
             dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -51,28 +51,27 @@ namespace Eduflow.views
         private void btnCaretakers_Click(object sender, EventArgs e)
         {
             HomeCaretakerAdmin caretakerHomeForm = new HomeCaretakerAdmin(this, admin);
-            caretakerHomeForm.Show();
-            this.Hide();
+            caretakerHomeForm.ShowDialog();
+           
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
             StudentForm studentForm = new StudentForm(this, admin);
-            studentForm.Show();
-            this.Hide();
+            studentForm.ShowDialog();
+           
         }
 
         private void btnLogboox_Click(object sender, EventArgs e)
         {
             LogbookForm logbookForm = new LogbookForm(this, admin);
-            logbookForm.Show();
-            this.Hide();
+            logbookForm.ShowDialog();
+           
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
     }
 }

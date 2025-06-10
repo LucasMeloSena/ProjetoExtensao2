@@ -26,7 +26,6 @@ namespace Eduflow.views
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void HomeCaretaker_Load(object sender, EventArgs e)
@@ -112,14 +111,14 @@ namespace Eduflow.views
                 if (mouseX < buttonWidth + spacing)
                 {
                     ListStudentCaretaker listStudentForm = new ListStudentCaretaker(this, id);
-                    this.Hide();
-                    listStudentForm.Show();
+                   
+                    listStudentForm.ShowDialog();
                 }
                 else if (mouseX < 2 * (buttonWidth + spacing))
                 {
                     LogbookCaretaker logbookForm = new LogbookCaretaker(this);
-                    this.Hide();
-                    logbookForm.Show();
+                   
+                    logbookForm.ShowDialog();
                 }
             }
         }

@@ -43,6 +43,12 @@ namespace Eduflow.views.Admin.Student
 
         private void searchStudent(string studentId)
         {
+            inputBornDate.Format = DateTimePickerFormat.Custom;
+            inputBornDate.CustomFormat = "dd/MM/yyyy";
+
+            inputRegisterDate.Format = DateTimePickerFormat.Custom;
+            inputRegisterDate.CustomFormat = "dd/MM/yyyy";
+
             StudentBd studentBd = new StudentBd();
             GroupBd groupBd = new GroupBd();
             models.Student student = studentBd.getStudent(studentId);
@@ -52,8 +58,8 @@ namespace Eduflow.views.Admin.Student
             txtStudentId.Text = student.registration;
             txtStudentAge.Text = student.age.ToString();
             txtStudentRestrictions.Text = student.restrictions;
-            inputBornDate.Text = student.bornDate.ToString("dd/MM/yyyy");
-            inputRegisterDate.Text = student.registrationDate.ToString("dd/MM/yyyy");
+            inputBornDate.Text = student.bornDate.ToString("d");
+            inputRegisterDate.Text = student.registrationDate.ToString("d");
             cmbGenre.SelectedItem = student.genre.ToString();
             txtStudentDisabilities.Text = student.disabilities.ToString();
             cmbGroup.SelectedValue = group.id;

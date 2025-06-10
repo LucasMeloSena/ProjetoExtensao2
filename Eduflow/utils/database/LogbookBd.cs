@@ -123,5 +123,20 @@ namespace Eduflow.utils.database
             }
         }
 
+        public void deleteLogbook(string logbookId)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "DELETE FROM DiarioDeBordo WHERE id = ?id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", logbookId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

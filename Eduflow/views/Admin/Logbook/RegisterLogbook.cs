@@ -70,7 +70,7 @@ namespace Eduflow.views.Admin.Logbook
                 models.Logbook logbook = new models.Logbook(id, observationDate, observation, observationType, caretakerId, caretakerName, studentId, studentName);
                 LogbookBd logbookBd = new LogbookBd();
                 logbookBd.insertLogbook(logbook);
-                MessageBox.Show("Diario de bordo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Diario de Bordo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lastForm.searchLogbooks();
                 this.Close();
             }

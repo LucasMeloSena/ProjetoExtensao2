@@ -17,6 +17,7 @@ namespace Eduflow.views.Admin.Logbook
         private Form lastForm;
         private models.Admin admin;
         private string studentId;
+        LogbookBd logbookBd = new LogbookBd();
         public LogbookReport(Form lastForm, models.Admin admin, string studentId)
         {
             InitializeComponent();
@@ -44,10 +45,10 @@ namespace Eduflow.views.Admin.Logbook
 
         public void searchLogbooks()
         {
-            LogbookBd logbookBd = new LogbookBd();
             List<models.Logbook> logbooks = logbookBd.getLogbooksByStudent(studentId);
 
             dataGridLogbookReport.Rows.Clear();
+            dataGridLogbookReport.CellContentClick += dataGridLogbookReport_CellContentClick;
 
             foreach (var logbook in logbooks)
             {
@@ -73,7 +74,19 @@ namespace Eduflow.views.Admin.Logbook
             }
             else if (columnName == "Excluir")
             {
-               
+                DialogResult result = MessageBox.Show(
+                    "Tem certeza que deseja deletar este item?",
+                    "Confirmação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    logbookBd.deleteLogbook(id.ToString());
+                    MessageBox.Show("Diario de Bordo excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    searchLogbooks();
+                }
             }
         }
 

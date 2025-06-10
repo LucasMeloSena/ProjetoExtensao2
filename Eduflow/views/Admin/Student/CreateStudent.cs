@@ -26,6 +26,12 @@ namespace Eduflow.views.Admin.Student
 
         private void CreateStudent_Load(object sender, EventArgs e)
         {
+            inputBornDate.Format = DateTimePickerFormat.Custom;
+            inputBornDate.CustomFormat = "dd/MM/yyyy";
+
+            inputRegisterDate.Format = DateTimePickerFormat.Custom;
+            inputRegisterDate.CustomFormat = "dd/MM/yyyy";
+
             GroupBd groupBd = new GroupBd();
             this.groups = groupBd.getGroups();
             cmbGroup.DataSource = this.groups;
@@ -38,7 +44,6 @@ namespace Eduflow.views.Admin.Student
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -46,16 +51,14 @@ namespace Eduflow.views.Admin.Student
             string name = txtStudentName.Text;
             string registration = txtStudentId.Text;
             int age = int.Parse(txtStudentAge.Text);
-            string bornDateStr = inputBornDate.Text;
-            string registerDateStr = inputRegisterDate.Text;
+            DateTime bornDate = inputBornDate.Value;
+            DateTime registerDate = inputRegisterDate.Value;
             string restrictions = txtStudentRestrictions.Text;
             string genreStr = cmbGenre.Text;
             string disabilities = txtStudentDisabilities.Text;
             string groupId = cmbGroup.SelectedValue.ToString();
 
             Genre genre = (Genre)Enum.Parse(typeof(Genre), genreStr, true);
-            DateTime bornDate = DateTime.Parse(bornDateStr);
-            DateTime registerDate = DateTime.Parse(registerDateStr);
 
             models.Student student = new models.Student(
                 Guid.NewGuid().ToString(),
@@ -77,7 +80,6 @@ namespace Eduflow.views.Admin.Student
                 MessageBox.Show("Aluno cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lastForm.searchStudentsAndFillDataGrid();
                 this.Close();
-                lastForm.Show();
             }
             catch (Exception ex)
             {

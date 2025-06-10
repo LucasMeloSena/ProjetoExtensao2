@@ -43,6 +43,12 @@ namespace Eduflow.views.Admin.Student
 
         private void searchStudent(string studentId)
         {
+            inputBornDate.Format = DateTimePickerFormat.Custom;
+            inputBornDate.CustomFormat = "dd/MM/yyyy";
+
+            inputRegisterDate.Format = DateTimePickerFormat.Custom;
+            inputRegisterDate.CustomFormat = "dd/MM/yyyy";
+
             StudentBd studentBd = new StudentBd();
             GroupBd groupBd = new GroupBd();
             models.Student student = studentBd.getStudent(studentId);
@@ -52,8 +58,8 @@ namespace Eduflow.views.Admin.Student
             txtStudentId.Text = student.registration;
             txtStudentAge.Text = student.age.ToString();
             txtStudentRestrictions.Text = student.restrictions;
-            inputBornDate.Text = student.bornDate.ToString("dd/MM/yyyy");
-            inputRegisterDate.Text = student.registrationDate.ToString("dd/MM/yyyy");
+            inputBornDate.Value = student.bornDate;
+            inputRegisterDate.Value = student.registrationDate;
             cmbGenre.SelectedItem = student.genre.ToString();
             txtStudentDisabilities.Text = student.disabilities.ToString();
             cmbGroup.SelectedValue = group.id;
@@ -69,16 +75,14 @@ namespace Eduflow.views.Admin.Student
             string name = txtStudentName.Text;
             string registration = txtStudentId.Text;
             int age = int.Parse(txtStudentAge.Text);
-            string bornDateStr = inputBornDate.Text;
-            string registerDateStr = inputRegisterDate.Text;
+            DateTime bornDate = inputBornDate.Value;
+            DateTime registerDate = inputRegisterDate.Value;
             string restrictions = txtStudentRestrictions.Text;
             string genreStr = cmbGenre.Text;
             string disabilities = txtStudentDisabilities.Text;
             string groupId = cmbGroup.SelectedValue.ToString();
 
             Genre genre = (Genre)Enum.Parse(typeof(Genre), genreStr, true);
-            DateTime bornDate = DateTime.Parse(bornDateStr);
-            DateTime registerDate = DateTime.Parse(registerDateStr);
 
             models.Student student = new models.Student(
                 studentId,

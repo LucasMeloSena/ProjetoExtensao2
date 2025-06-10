@@ -23,13 +23,11 @@ namespace Eduflow.views.Caretaker
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
     }
 }

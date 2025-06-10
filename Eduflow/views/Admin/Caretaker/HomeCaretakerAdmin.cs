@@ -66,14 +66,13 @@ namespace Eduflow.views
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnAddCaretaker_Click(object sender, EventArgs e)
         {
             CreateCaretaker createCaretakerForm = new CreateCaretaker(this);
-            this.Hide();
-            createCaretakerForm.Show();
+           
+            createCaretakerForm.ShowDialog();
         }
 
         private void dataGridCaretakers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -124,8 +123,8 @@ namespace Eduflow.views
                 if (mouseX < buttonWidth + spacing)
                 {
                     UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id);
-                    this.Hide();
-                    updateCaretakerForm.Show();
+                   
+                    updateCaretakerForm.ShowDialog();
                 }
                 else if (mouseX < 2 * (buttonWidth + spacing))
                 {
@@ -144,8 +143,8 @@ namespace Eduflow.views
                 else if (mouseX < 3 * (buttonWidth + spacing))
                 {
                     ListCaretaker listCaretakerForm = new ListCaretaker(this, id);
-                    this.Hide();
-                    listCaretakerForm.Show();
+                   
+                    listCaretakerForm.ShowDialog();
                 }
             }
         }

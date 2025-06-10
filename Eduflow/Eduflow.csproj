@@ -264,6 +264,9 @@
     <EmbeddedResource Include="views\Admin\Logbook\LogbookReport.resx">
       <DependentUpon>LogbookReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Logbook\UpdateLogbook.resx">
+      <DependentUpon>UpdateLogbook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Student\CreateStudent.resx">
       <DependentUpon>CreateStudent.cs</DependentUpon>
     </EmbeddedResource>

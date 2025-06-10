@@ -57,13 +57,13 @@ namespace Eduflow.views.Admin.Logbook
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string id = Guid.NewGuid().ToString();
-            DateTime observationDate = DateTime.Parse(inputObservationDate.Text);
+            DateTime observationDate = inputObservationDate.Value;
             string observation = txtObservation.Text;
             string observationType = cmbObservationType.SelectedValue.ToString();
-            string caretakerName = cmbCaretaker.SelectedText;
             string caretakerId = cmbCaretaker.SelectedValue.ToString();
+            string caretakerName = ((models.Caretaker)cmbCaretaker.SelectedItem).name;
             string studentId = cmbStudent.SelectedValue.ToString();
-            string studentName = cmbStudent.SelectedItem.ToString();
+            string studentName = ((models.Student)cmbStudent.SelectedItem).name;
 
             try
             {

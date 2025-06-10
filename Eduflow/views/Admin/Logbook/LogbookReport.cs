@@ -52,7 +52,7 @@ namespace Eduflow.views.Admin.Logbook
 
             foreach (var logbook in logbooks)
             {
-                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("d"), logbook.observation, logbook.caretakerName, "Editar", "Excluir");
+                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("dd/MM/yyyy"), logbook.observation, logbook.caretakerName, "Editar", "Excluir");
             }
 
             dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -70,7 +70,8 @@ namespace Eduflow.views.Admin.Logbook
 
             if (columnName == "Editar")
             {
-                
+                UpdateLogbook updateLogbook = new UpdateLogbook(this, id.ToString());
+                updateLogbook.ShowDialog();
             }
             else if (columnName == "Excluir")
             {

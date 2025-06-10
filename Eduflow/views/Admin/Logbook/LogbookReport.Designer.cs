@@ -221,7 +221,7 @@
             this.Controls.Add(this.btnVoltar);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogbookReport";
-            this.Text = "LogbookReport";
+            this.Text = "Diario de Bordo do Aluno";
             this.Load += new System.EventHandler(this.LogbookReport_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

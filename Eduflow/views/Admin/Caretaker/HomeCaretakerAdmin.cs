@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Eduflow.models;
+using Eduflow.utils.database;
 using Eduflow.views.Admin.Caretaker;
 
 namespace Eduflow.views
@@ -30,32 +31,20 @@ namespace Eduflow.views
             lblName.Text = $"Nome: {admin.name}";
             lblSchool.Text = $"Escola: {admin.schoolName}";
 
-            dataGridCaretakers.ColumnCount = 3;
-            dataGridCaretakers.Columns[0].Name = "id";
-            dataGridCaretakers.Columns[0].Visible = false;
-            dataGridCaretakers.Columns[1].Name = "Nome";
-            dataGridCaretakers.Columns[2].Name = "Matricula";
+            searchCaretakersAndFillDataGrid();
+        }
 
-            DataGridViewColumn actionsColumn = new DataGridViewColumn();
-            actionsColumn.Name = "Acoes";
-            actionsColumn.HeaderText = "Acoes";
-            actionsColumn.CellTemplate = new DataGridViewTextBoxCell();
+        public void searchCaretakersAndFillDataGrid()
+        {
+            dataGridCaretakers.Rows.Clear();
 
-            string[] row1 = new string[] {
-                "1",
-                "John Doe",
-                "1234"
-            };
-
-            string[] row2 = new string[] {
-                "2",
-                "John Doe II",
-                "4321"
-            };
-
-            dataGridCaretakers.Rows.Add(row1);
-            dataGridCaretakers.Rows.Add(row2);
-            dataGridCaretakers.Columns.Add(actionsColumn);
+            CaretakerBd caretakerBd = new CaretakerBd();
+            List<models.Caretaker> caretakers = caretakerBd.getCaretakers();
+            
+            foreach (var caretaker in caretakers)
+            {
+                dataGridCaretakers.Rows.Add(caretaker.id, caretaker.name, caretaker.registration, "Expandir", "Editar");
+            }
 
             dataGridCaretakers.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridCaretakers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -76,77 +65,22 @@ namespace Eduflow.views
             createCaretakerForm.Show();
         }
 
-        private void dataGridCaretakers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dataGridCaretakers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridCaretakers.Columns["Acoes"].Index && e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            string columnName = dataGridCaretakers.Columns[e.ColumnIndex].Name;
+            var id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value;
+
+            if (columnName == "Expandir")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                int buttonWidth = 24;
-                int spacing = 4;
-
-                Rectangle editButton = new Rectangle(
-                    e.CellBounds.Left + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                Rectangle deleteButton = new Rectangle(
-                    editButton.Right + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                Rectangle viewButton = new Rectangle(
-                    deleteButton.Right + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                ButtonRenderer.DrawButton(e.Graphics, editButton, "🖊️", dataGridCaretakers.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, deleteButton, "🗑", dataGridCaretakers.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, viewButton, "👁", dataGridCaretakers.Font, false, PushButtonState.Default);
-
-                e.Handled = true;
+                ListCaretaker listCaretakerForm = new ListCaretaker(this, id.ToString());
+                listCaretakerForm.Show();
             }
-        }
-
-        private void dataGridCaretakers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridCaretakers.Columns["Acoes"].Index && e.RowIndex >= 0)
+            else if (columnName == "Editar")
             {
-                var cellRect = dataGridCaretakers.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                int buttonWidth = 24;
-                int spacing = 4;
-                int mouseX = dataGridCaretakers.PointToClient(Cursor.Position).X - cellRect.X;
-                string id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value.ToString();
-
-                if (mouseX < buttonWidth + spacing)
-                {
-                    UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id);
-                    this.Hide();
-                    updateCaretakerForm.Show();
-                }
-                else if (mouseX < 2 * (buttonWidth + spacing))
-                {
-                    DialogResult result = MessageBox.Show(
-                        $"Tem certeza que deseja excluir o cuidador?",
-                        "Confirmação de Exclusão",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
-
-                    if (result == DialogResult.Yes)
-                    {
-
-                    }
-                }
-                else if (mouseX < 3 * (buttonWidth + spacing))
-                {
-                    ListCaretaker listCaretakerForm = new ListCaretaker(this, id);
-                    this.Hide();
-                    listCaretakerForm.Show();
-                }
+                UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id.ToString());
+                updateCaretakerForm.Show();
             }
         }
     }

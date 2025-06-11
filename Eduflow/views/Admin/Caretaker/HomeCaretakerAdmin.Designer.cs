@@ -36,6 +36,11 @@
             this.btnAddCaretaker = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridCaretakers = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Expandir = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCaretakers)).BeginInit();
@@ -46,11 +51,11 @@
             this.groupBox1.Controls.Add(this.lblSchool);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(344, 69);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(172, 36);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(600, 404);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(300, 210);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -58,30 +63,30 @@
             // 
             this.lblSchool.AutoSize = true;
             this.lblSchool.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSchool.Location = new System.Drawing.Point(146, 348);
-            this.lblSchool.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSchool.Location = new System.Drawing.Point(73, 181);
+            this.lblSchool.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSchool.Name = "lblSchool";
-            this.lblSchool.Size = new System.Drawing.Size(0, 27);
+            this.lblSchool.Size = new System.Drawing.Size(0, 15);
             this.lblSchool.TabIndex = 2;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(146, 298);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(73, 155);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 27);
+            this.lblName.Size = new System.Drawing.Size(0, 15);
             this.lblName.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Eduflow.Properties.Resources.profile;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(184, 54);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(92, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(224, 225);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 117);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -89,10 +94,10 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(1056, 31);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Location = new System.Drawing.Point(528, 16);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(272, 52);
+            this.btnSair.Size = new System.Drawing.Size(136, 27);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Voltar";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -101,10 +106,10 @@
             // btnAddCaretaker
             // 
             this.btnAddCaretaker.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCaretaker.Location = new System.Drawing.Point(1056, 87);
-            this.btnAddCaretaker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCaretaker.Location = new System.Drawing.Point(528, 45);
+            this.btnAddCaretaker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddCaretaker.Name = "btnAddCaretaker";
-            this.btnAddCaretaker.Size = new System.Drawing.Size(272, 52);
+            this.btnAddCaretaker.Size = new System.Drawing.Size(136, 27);
             this.btnAddCaretaker.TabIndex = 6;
             this.btnAddCaretaker.Text = "Adicionar Cuidador";
             this.btnAddCaretaker.UseVisualStyleBackColor = true;
@@ -113,10 +118,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 577);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(0, 300);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1356, 35);
+            this.label1.Size = new System.Drawing.Size(678, 18);
             this.label1.TabIndex = 10;
             this.label1.Text = "Listagem Cuidadores Cadastrados";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,31 +133,67 @@
             this.dataGridCaretakers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridCaretakers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridCaretakers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCaretakers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Matricula,
+            this.Nome,
+            this.Expandir,
+            this.Editar});
             this.dataGridCaretakers.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridCaretakers.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridCaretakers.Location = new System.Drawing.Point(0, 635);
-            this.dataGridCaretakers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridCaretakers.Location = new System.Drawing.Point(0, 330);
+            this.dataGridCaretakers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridCaretakers.Name = "dataGridCaretakers";
             this.dataGridCaretakers.ReadOnly = true;
             this.dataGridCaretakers.RowHeadersWidth = 82;
             this.dataGridCaretakers.RowTemplate.Height = 33;
-            this.dataGridCaretakers.Size = new System.Drawing.Size(1356, 371);
+            this.dataGridCaretakers.Size = new System.Drawing.Size(678, 193);
             this.dataGridCaretakers.TabIndex = 9;
-            this.dataGridCaretakers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCaretakers_CellClick);
-            this.dataGridCaretakers.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridCaretakers_CellPainting);
+            this.dataGridCaretakers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCaretakers_CellContentClick);
             // 
-            // Caretaker
+            // id
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // Matricula
+            // 
+            this.Matricula.HeaderText = "Matricula";
+            this.Matricula.Name = "Matricula";
+            this.Matricula.ReadOnly = true;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            // 
+            // Expandir
+            // 
+            this.Expandir.HeaderText = "Ação 1";
+            this.Expandir.Name = "Expandir";
+            this.Expandir.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Ação 2";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            // 
+            // HomeCaretakerAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 1006);
+            this.ClientSize = new System.Drawing.Size(678, 523);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridCaretakers);
             this.Controls.Add(this.btnAddCaretaker);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Caretaker";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "HomeCaretakerAdmin";
             this.Text = "Admin - Cuidador";
             this.Load += new System.EventHandler(this.Caretaker_Load);
             this.groupBox1.ResumeLayout(false);
@@ -173,5 +214,10 @@
         private System.Windows.Forms.Button btnAddCaretaker;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridCaretakers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Matricula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewButtonColumn Expandir;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
     }
 }

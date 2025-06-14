@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eduflow.models;
+using Eduflow.utils.enums;
 using MySql.Data.MySqlClient;
 using ZstdSharp.Unsafe;
 
@@ -40,6 +41,37 @@ namespace Eduflow.utils.database
                             return null;
                         }
                     }
+                }
+            }
+        }
+
+        public List<Caretaker> getCaretakers()
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Cuidador";
+                List<Caretaker> caretakers = new List<Caretaker>();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        for (int i = 0; i < dataTable.Rows.Count; i++)
+                        {
+                            var id = dataTable.Rows[i][0].ToString();
+                            var name = dataTable.Rows[i][1].ToString();
+                            var registration = dataTable.Rows[i][2].ToString();
+                            var userId = dataTable.Rows[i][3].ToString();
+                            Caretaker caretaker = new Caretaker(id, name, registration, userId);
+                            caretakers.Add(caretaker);
+                        }
+                        return caretakers;
+                    }
+                    throw new Exception("Caretakers not found");
                 }
             }
         }

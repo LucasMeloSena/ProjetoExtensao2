@@ -29,7 +29,6 @@ namespace Eduflow.views.Admin.Caretaker
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -65,7 +64,6 @@ namespace Eduflow.views.Admin.Caretaker
                 MessageBox.Show("Cuidador cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
-                lastForm.Show();
             }
             catch (Exception ex)
             {

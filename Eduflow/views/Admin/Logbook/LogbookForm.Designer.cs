@@ -186,7 +186,7 @@
             this.Controls.Add(this.btnVoltar);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LogbookForm";
-            this.Text = "LogbookForm";
+            this.Text = "Ultimos Diarios de Bordo Cadastrados";
             this.Load += new System.EventHandler(this.LogbookForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Eduflow.utils.database;
+using Eduflow.views.Admin.Student;
 
 namespace Eduflow.views.Admin.Logbook
 {
@@ -16,6 +17,7 @@ namespace Eduflow.views.Admin.Logbook
         private Form lastForm;
         private models.Admin admin;
         private string studentId;
+        LogbookBd logbookBd = new LogbookBd();
         public LogbookReport(Form lastForm, models.Admin admin, string studentId)
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace Eduflow.views.Admin.Logbook
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void LogbookReport_Load(object sender, EventArgs e)
@@ -39,14 +40,19 @@ namespace Eduflow.views.Admin.Logbook
             lblSchool.Text = $"Escola: {admin.schoolName}";
             lblStudentName.Text = student.name;
 
-            LogbookBd logbookBd = new LogbookBd();
+            searchLogbooks();
+        }
+
+        public void searchLogbooks()
+        {
             List<models.Logbook> logbooks = logbookBd.getLogbooksByStudent(studentId);
 
             dataGridLogbookReport.Rows.Clear();
+            dataGridLogbookReport.CellContentClick += dataGridLogbookReport_CellContentClick;
 
             foreach (var logbook in logbooks)
             {
-                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("dd/MM/yyyy"), logbook.observation, logbook.caretakerName);
+                dataGridLogbookReport.Rows.Add(logbook.id, logbook.registerDate.ToString("dd/MM/yyyy"), logbook.observation, logbook.caretakerName, "Editar", "Excluir");
             }
 
             dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -55,11 +61,40 @@ namespace Eduflow.views.Admin.Logbook
             dataGridLogbookReport.RowHeadersVisible = false;
         }
 
+        private void dataGridLogbookReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string columnName = dataGridLogbookReport.Columns[e.ColumnIndex].Name;
+            var id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value;
+
+            if (columnName == "Editar")
+            {
+                UpdateLogbook updateLogbook = new UpdateLogbook(this, id.ToString());
+                updateLogbook.ShowDialog();
+            }
+            else if (columnName == "Excluir")
+            {
+                DialogResult result = MessageBox.Show(
+                    "Tem certeza que deseja deletar este item?",
+                    "Confirmação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    logbookBd.deleteLogbook(id.ToString());
+                    MessageBox.Show("Diario de Bordo excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    searchLogbooks();
+                }
+            }
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            CreateObservationLogbook createObservationLogbook = new CreateObservationLogbook(this);
-            this.Hide();
-            createObservationLogbook.Show();
+            RegisterLogbook createObservationLogbook = new RegisterLogbook(this);
+            createObservationLogbook.ShowDialog();
         }
     }
 }

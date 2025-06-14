@@ -64,14 +64,13 @@ namespace Eduflow.views.Caretaker
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             CreateLogbookCaretaker createLogbook = new CreateLogbookCaretaker(this);
-            this.Hide();
-            createLogbook.Show();
+           
+            createLogbook.ShowDialog();
         }
     }
 }

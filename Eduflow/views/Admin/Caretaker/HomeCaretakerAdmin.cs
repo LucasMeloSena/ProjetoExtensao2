@@ -55,14 +55,13 @@ namespace Eduflow.views
         private void btnSair_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnAddCaretaker_Click(object sender, EventArgs e)
         {
             CreateCaretaker createCaretakerForm = new CreateCaretaker(this);
-            this.Hide();
-            createCaretakerForm.Show();
+           
+            createCaretakerForm.ShowDialog();
         }
 
         private void dataGridCaretakers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -79,8 +78,38 @@ namespace Eduflow.views
             }
             else if (columnName == "Editar")
             {
-                UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id.ToString());
-                updateCaretakerForm.Show();
+                var cellRect = dataGridCaretakers.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
+                int buttonWidth = 24;
+                int spacing = 4;
+                int mouseX = dataGridCaretakers.PointToClient(Cursor.Position).X - cellRect.X;
+                string id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value.ToString();
+
+                if (mouseX < buttonWidth + spacing)
+                {
+                    UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id);
+                   
+                    updateCaretakerForm.ShowDialog();
+                }
+                else if (mouseX < 2 * (buttonWidth + spacing))
+                {
+                    DialogResult result = MessageBox.Show(
+                        $"Tem certeza que deseja excluir o cuidador?",
+                        "Confirmação de Exclusão",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+
+                    }
+                }
+                else if (mouseX < 3 * (buttonWidth + spacing))
+                {
+                    ListCaretaker listCaretakerForm = new ListCaretaker(this, id);
+                   
+                    listCaretakerForm.ShowDialog();
+                }
             }
         }
     }

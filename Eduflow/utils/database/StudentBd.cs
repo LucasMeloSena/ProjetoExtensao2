@@ -81,7 +81,6 @@ namespace Eduflow.utils.database
                         return students;
                     }
                     throw new Exception("Students not found");
-
                 }
             }
         }

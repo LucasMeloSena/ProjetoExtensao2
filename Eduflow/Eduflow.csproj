@@ -109,6 +109,7 @@
     <Compile Include="models\Caretaker.cs" />
     <Compile Include="models\Group.cs" />
     <Compile Include="models\Logbook.cs" />
+    <Compile Include="models\LogbookType.cs" />
     <Compile Include="models\LoginLog.cs" />
     <Compile Include="models\Student.cs" />
     <Compile Include="models\User.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="utils\database\Conn.cs" />
     <Compile Include="utils\database\GroupBd.cs" />
     <Compile Include="utils\database\LogbookBd.cs" />
+    <Compile Include="utils\database\LogbookTypeBd.cs" />
     <Compile Include="utils\database\StudentBd.cs" />
     <Compile Include="utils\database\UserBd.cs" />
     <Compile Include="utils\enums\Genre.cs" />
@@ -158,11 +160,11 @@
     <Compile Include="views\Admin\Caretaker\HomeCaretakerAdmin.Designer.cs">
       <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Admin\Logbook\CreateObservationLogbook.cs">
+    <Compile Include="views\Admin\Logbook\RegisterLogbook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Admin\Logbook\CreateObservationLogbook.Designer.cs">
-      <DependentUpon>CreateObservationLogbook.cs</DependentUpon>
+    <Compile Include="views\Admin\Logbook\RegisterLogbook.Designer.cs">
+      <DependentUpon>RegisterLogbook.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Admin\Logbook\LogbookForm.cs">
       <SubType>Form</SubType>
@@ -175,6 +177,12 @@
     </Compile>
     <Compile Include="views\Admin\Logbook\LogbookReport.Designer.cs">
       <DependentUpon>LogbookReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\UpdateLogbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Logbook\UpdateLogbook.Designer.cs">
+      <DependentUpon>UpdateLogbook.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Admin\Student\CreateStudent.cs">
       <SubType>Form</SubType>
@@ -247,14 +255,17 @@
     <EmbeddedResource Include="views\Admin\Caretaker\HomeCaretakerAdmin.resx">
       <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Admin\Logbook\CreateObservationLogbook.resx">
-      <DependentUpon>CreateObservationLogbook.cs</DependentUpon>
+    <EmbeddedResource Include="views\Admin\Logbook\RegisterLogbook.resx">
+      <DependentUpon>RegisterLogbook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Logbook\LogbookForm.resx">
       <DependentUpon>LogbookForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Logbook\LogbookReport.resx">
       <DependentUpon>LogbookReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Logbook\UpdateLogbook.resx">
+      <DependentUpon>UpdateLogbook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Student\CreateStudent.resx">
       <DependentUpon>CreateStudent.cs</DependentUpon>

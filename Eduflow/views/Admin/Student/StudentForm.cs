@@ -29,14 +29,13 @@ namespace Eduflow.views.Admin.Student
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
-            lastForm.Show();
         }
 
         private void btnAddCaretaker_Click(object sender, EventArgs e)
         {
             CreateStudent createStudentForm = new CreateStudent(this);
-            this.Hide();
-            createStudentForm.Show();
+           
+            createStudentForm.ShowDialog();
         }
 
         private void StudentForm_Load(object sender, EventArgs e)

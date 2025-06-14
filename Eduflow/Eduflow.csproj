@@ -208,11 +208,11 @@
     <Compile Include="views\Admin\Student\UpdateStudent.Designer.cs">
       <DependentUpon>UpdateStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Caretaker\CreateLogbookCaretaker.cs">
+    <Compile Include="views\Caretaker\RegisterLogbookCaretaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Caretaker\CreateLogbookCaretaker.Designer.cs">
-      <DependentUpon>CreateLogbookCaretaker.cs</DependentUpon>
+    <Compile Include="views\Caretaker\RegisterLogbookCaretaker.Designer.cs">
+      <DependentUpon>RegisterLogbookCaretaker.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Caretaker\HomeCaretaker.cs">
       <SubType>Form</SubType>
@@ -226,11 +226,11 @@
     <Compile Include="views\Caretaker\ListStudentCaretaker.Designer.cs">
       <DependentUpon>ListStudentCaretaker.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Caretaker\LogbookCaretaker.cs">
+    <Compile Include="views\Caretaker\LogbookReportCaretaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Caretaker\LogbookCaretaker.Designer.cs">
-      <DependentUpon>LogbookCaretaker.cs</DependentUpon>
+    <Compile Include="views\Caretaker\LogbookReportCaretaker.Designer.cs">
+      <DependentUpon>LogbookReportCaretaker.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -279,8 +279,8 @@
     <EmbeddedResource Include="views\Admin\Student\UpdateStudent.resx">
       <DependentUpon>UpdateStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Caretaker\CreateLogbookCaretaker.resx">
-      <DependentUpon>CreateLogbookCaretaker.cs</DependentUpon>
+    <EmbeddedResource Include="views\Caretaker\RegisterLogbookCaretaker.resx">
+      <DependentUpon>RegisterLogbookCaretaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Caretaker\HomeCaretaker.resx">
       <DependentUpon>HomeCaretaker.cs</DependentUpon>
@@ -288,8 +288,8 @@
     <EmbeddedResource Include="views\Caretaker\ListStudentCaretaker.resx">
       <DependentUpon>ListStudentCaretaker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Caretaker\LogbookCaretaker.resx">
-      <DependentUpon>LogbookCaretaker.cs</DependentUpon>
+    <EmbeddedResource Include="views\Caretaker\LogbookReportCaretaker.resx">
+      <DependentUpon>LogbookReportCaretaker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

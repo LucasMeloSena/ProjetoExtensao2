@@ -69,6 +69,7 @@
             this.groupBox1.Size = new System.Drawing.Size(600, 404);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            // this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblSchool
             // 
@@ -112,6 +113,7 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Listagem De Todos Os Alunos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+//            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridLogbookReport
             // 
@@ -136,6 +138,7 @@
             this.dataGridLogbookReport.RowTemplate.Height = 33;
             this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
             this.dataGridLogbookReport.TabIndex = 13;
+//            this.dataGridLogbookReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLogbookReport_CellContentClick_1);
             // 
             // id
             // 

@@ -69,47 +69,17 @@ namespace Eduflow.views
             if (e.RowIndex < 0) return;
 
             string columnName = dataGridCaretakers.Columns[e.ColumnIndex].Name;
-            var id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value;
+            string id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value.ToString();
 
             if (columnName == "Expandir")
             {
                 ListCaretaker listCaretakerForm = new ListCaretaker(this, id.ToString());
-                listCaretakerForm.Show();
+                listCaretakerForm.ShowDialog();
             }
             else if (columnName == "Editar")
             {
-                var cellRect = dataGridCaretakers.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                int buttonWidth = 24;
-                int spacing = 4;
-                int mouseX = dataGridCaretakers.PointToClient(Cursor.Position).X - cellRect.X;
-                string id = dataGridCaretakers.Rows[e.RowIndex].Cells["id"].Value.ToString();
-
-                if (mouseX < buttonWidth + spacing)
-                {
-                    UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id);
-                   
-                    updateCaretakerForm.ShowDialog();
-                }
-                else if (mouseX < 2 * (buttonWidth + spacing))
-                {
-                    DialogResult result = MessageBox.Show(
-                        $"Tem certeza que deseja excluir o cuidador?",
-                        "Confirmação de Exclusão",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
-
-                    if (result == DialogResult.Yes)
-                    {
-
-                    }
-                }
-                else if (mouseX < 3 * (buttonWidth + spacing))
-                {
-                    ListCaretaker listCaretakerForm = new ListCaretaker(this, id);
-                   
-                    listCaretakerForm.ShowDialog();
-                }
+                UpdateCaretaker updateCaretakerForm = new UpdateCaretaker(this, id);
+                updateCaretakerForm.ShowDialog();
             }
         }
     }

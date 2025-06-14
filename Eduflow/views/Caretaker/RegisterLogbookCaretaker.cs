@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Eduflow.views.Caretaker
 {
-    public partial class CreateLogbookCaretaker : Form
+    public partial class RegisterLogbookCaretaker : Form
     {
         private Form lastForm;
 
-        public CreateLogbookCaretaker(Form lastForm)
+        public RegisterLogbookCaretaker(Form lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;

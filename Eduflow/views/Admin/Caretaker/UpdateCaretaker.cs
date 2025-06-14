@@ -14,16 +14,14 @@ namespace Eduflow.views.Admin.Caretaker
 {
     public partial class UpdateCaretaker : Form
     {
-        private Form lastForm;
+        private HomeCaretakerAdmin lastForm;
         private string caretakerId;
 
-        public UpdateCaretaker(Form lastForm, string caretakerId)
+        public UpdateCaretaker(HomeCaretakerAdmin lastForm, string caretakerId)
         {
             InitializeComponent();
             this.lastForm = lastForm;
             this.caretakerId = caretakerId;
-            
-            
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -56,8 +54,8 @@ namespace Eduflow.views.Admin.Caretaker
             {
                 caretakerBd.updateCaretaker(updatedCaretaker);
                 MessageBox.Show("Cuidador atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lastForm.searchCaretakersAndFillDataGrid();
                 this.Close();
-                lastForm.Show();
             }
             catch (Exception ex)
             {

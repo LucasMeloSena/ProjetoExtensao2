@@ -1,6 +1,6 @@
 ﻿namespace Eduflow.views.Caretaker
 {
-    partial class CreateLogbookCaretaker
+    partial class RegisterLogbookCaretaker
     {
         /// <summary>
         /// Required designer variable.

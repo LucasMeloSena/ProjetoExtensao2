@@ -54,7 +54,9 @@ namespace Eduflow
                     }
                     else if (user.type == UserType.CARETAKER)
                     {
-                        HomeCaretaker caretakerStudent = new HomeCaretaker(this);
+                        CaretakerBd caretakerBd = new CaretakerBd();
+                        Caretaker caretaker = caretakerBd.getCaretaker(user.id);
+                        HomeCaretaker caretakerStudent = new HomeCaretaker(this, caretaker);
                        
                         caretakerStudent.ShowDialog();
                     }

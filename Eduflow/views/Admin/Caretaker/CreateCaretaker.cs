@@ -18,9 +18,9 @@ namespace Eduflow.views.Admin.Caretaker
 {
     public partial class CreateCaretaker : Form
     {
-        private Form lastForm;
+        private HomeCaretakerAdmin lastForm;
 
-        public CreateCaretaker(Form lastForm)
+        public CreateCaretaker(HomeCaretakerAdmin lastForm)
         {
             InitializeComponent();
             this.lastForm = lastForm;
@@ -43,8 +43,6 @@ namespace Eduflow.views.Admin.Caretaker
 
             string id = Guid.NewGuid().ToString();
 
-
-
             try
             {
                 UserType userType = UserType.CARETAKER;
@@ -63,6 +61,7 @@ namespace Eduflow.views.Admin.Caretaker
 
                 MessageBox.Show("Cuidador cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                lastForm.searchCaretakersAndFillDataGrid();
                 this.Close();
             }
             catch (Exception ex)

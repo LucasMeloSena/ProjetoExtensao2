@@ -10,116 +10,72 @@ using System.Windows.Forms;
 using Eduflow.views.Admin.Student;
 using System.Windows.Forms.VisualStyles;
 using Eduflow.views.Caretaker;
+using Eduflow.models;
+using Eduflow.utils.database;
+using Eduflow.views.Admin.Logbook;
 
 namespace Eduflow.views
 {
     public partial class HomeCaretaker : Form
     {
         private Form lastForm;
+        private models.Caretaker caretaker;
 
-        public HomeCaretaker(Form lastForm)
+        public HomeCaretaker(Form lastForm, models.Caretaker caretaker)
         {
             InitializeComponent();
             this.lastForm = lastForm;
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            this.caretaker = caretaker;
         }
 
         private void HomeCaretaker_Load(object sender, EventArgs e)
         {
-            lblName.Text = "Nome: Cuidador X";
-            lblSchool.Text = "Escola: Escola X";
+            lblName.Text = $"Nome: {caretaker.name}";
+            lblRegistration.Text = $"Matricula: {caretaker.registration}";
 
-            dataGridLogbookReport.ColumnCount = 4;
-            dataGridLogbookReport.Columns[0].Name = "id";
-            dataGridLogbookReport.Columns[0].Visible = false;
-            dataGridLogbookReport.Columns[1].Name = "Nome";
-            dataGridLogbookReport.Columns[2].Name = "Matricula";
-            dataGridLogbookReport.Columns[3].Name = "Responsavel";
-                
-            DataGridViewColumn actionsColumn = new DataGridViewColumn();
-            actionsColumn.Name = "Acoes";
-            actionsColumn.HeaderText = "Acoes";
-            actionsColumn.CellTemplate = new DataGridViewTextBoxCell();
+            searchStudentsAndFillDataGrid();
+        }
 
-            string[] row1 = new string[]
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void searchStudentsAndFillDataGrid()
+        {
+            dataGridLogbookReport.Rows.Clear();
+            dataGridLogbookReport.CellContentClick += dataGridLogbookReport_CellContentClick;
+
+            StudentBd studentBd = new StudentBd();
+            List<models.Student> students = studentBd.getStudents();
+
+            foreach (var student in students)
             {
-                    "1",
-                    "Maria Joana",
-                    "PNMGF88",
-                    "John Doe"
-            };
+                dataGridLogbookReport.Rows.Add(student.id, student.name, student.registration, student.age, "Expandir", "Visualizar Diario");
+            }
 
-            string[] row2 = new string[]
-            {
-                    "2",
-                    "Letícia Carvalho",
-                    "823SBND",
-                    "John Doe II"
-            };
-
-            dataGridLogbookReport.Rows.Add(row1);
-            dataGridLogbookReport.Rows.Add(row2);
-            dataGridLogbookReport.Columns.Add(actionsColumn);
             dataGridLogbookReport.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridLogbookReport.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridLogbookReport.RowTemplate.Height = 60;
             dataGridLogbookReport.RowHeadersVisible = false;
         }
 
-        private void dataGridLogbookReport_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dataGridLogbookReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridLogbookReport.Columns["Acoes"].Index && e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            string columnName = dataGridLogbookReport.Columns[e.ColumnIndex].Name;
+            string id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value.ToString();
+
+            if (columnName == "Expand")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                int buttonWidth = 24;
-                int spacing = 4;
-
-                Rectangle viewButton = new Rectangle(
-                    e.CellBounds.Left + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                Rectangle logbookButton = new Rectangle(
-                    viewButton.Right + spacing,
-                    e.CellBounds.Top + spacing,
-                    buttonWidth,
-                    e.CellBounds.Height - 2 * spacing);
-
-                ButtonRenderer.DrawButton(e.Graphics, viewButton, "👁", dataGridLogbookReport.Font, false, PushButtonState.Default);
-                ButtonRenderer.DrawButton(e.Graphics, logbookButton, "📕", dataGridLogbookReport.Font, false, PushButtonState.Default);
-
-                e.Handled = true;
+                ListStudentCaretaker listStudentCaretaker = new ListStudentCaretaker(this, id);
+                listStudentCaretaker.ShowDialog();
             }
-        }
-
-        private void dataGridLogbookReport_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataGridLogbookReport.Columns["Acoes"].Index && e.RowIndex >= 0)
+            else if (columnName == "SeeDiary")
             {
-                var cellRect = dataGridLogbookReport.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                int buttonWidth = 24;
-                int spacing = 4;
-                int mouseX = dataGridLogbookReport.PointToClient(Cursor.Position).X - cellRect.X;
-                string id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value.ToString();
-
-                if (mouseX < buttonWidth + spacing)
-                {
-                    ListStudentCaretaker listStudentForm = new ListStudentCaretaker(this, id);
-                   
-                    listStudentForm.ShowDialog();
-                }
-                else if (mouseX < 2 * (buttonWidth + spacing))
-                {
-                    LogbookCaretaker logbookForm = new LogbookCaretaker(this);
-                   
-                    logbookForm.ShowDialog();
-                }
+                LogbookReportCaretaker logbookReportCaretaker = new LogbookReportCaretaker(this, caretaker, id);
+                logbookReportCaretaker.ShowDialog();
             }
         }
     }

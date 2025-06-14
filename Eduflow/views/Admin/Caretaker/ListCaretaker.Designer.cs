@@ -45,35 +45,39 @@
             this.groupBox1.Controls.Add(this.lblCaretakerId);
             this.groupBox1.Controls.Add(this.lblCaretakerName);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(30, 33);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(60, 63);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(619, 458);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1238, 881);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exibir Informacoes Cuidador";
             // 
             // txtCaretakerRegistration
             // 
-            this.txtCaretakerRegistration.Location = new System.Drawing.Point(221, 218);
+            this.txtCaretakerRegistration.Location = new System.Drawing.Point(442, 419);
+            this.txtCaretakerRegistration.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCaretakerRegistration.Name = "txtCaretakerRegistration";
-            this.txtCaretakerRegistration.Size = new System.Drawing.Size(304, 24);
+            this.txtCaretakerRegistration.ReadOnly = true;
+            this.txtCaretakerRegistration.Size = new System.Drawing.Size(604, 40);
             this.txtCaretakerRegistration.TabIndex = 6;
             // 
             // txtCaretakerName
             // 
-            this.txtCaretakerName.Location = new System.Drawing.Point(198, 188);
+            this.txtCaretakerName.Location = new System.Drawing.Point(396, 362);
+            this.txtCaretakerName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCaretakerName.Name = "txtCaretakerName";
-            this.txtCaretakerName.Size = new System.Drawing.Size(327, 24);
+            this.txtCaretakerName.ReadOnly = true;
+            this.txtCaretakerName.Size = new System.Drawing.Size(650, 40);
             this.txtCaretakerName.TabIndex = 5;
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(505, 421);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Location = new System.Drawing.Point(1010, 810);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(94, 29);
+            this.btnVoltar.Size = new System.Drawing.Size(188, 56);
             this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -82,30 +86,30 @@
             // lblCaretakerId
             // 
             this.lblCaretakerId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaretakerId.Location = new System.Drawing.Point(68, 222);
-            this.lblCaretakerId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCaretakerId.Location = new System.Drawing.Point(136, 427);
+            this.lblCaretakerId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaretakerId.Name = "lblCaretakerId";
-            this.lblCaretakerId.Size = new System.Drawing.Size(408, 16);
+            this.lblCaretakerId.Size = new System.Drawing.Size(816, 31);
             this.lblCaretakerId.TabIndex = 2;
             this.lblCaretakerId.Text = "Matricula do Cuidador:";
             // 
             // lblCaretakerName
             // 
             this.lblCaretakerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaretakerName.Location = new System.Drawing.Point(68, 192);
-            this.lblCaretakerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCaretakerName.Location = new System.Drawing.Point(136, 369);
+            this.lblCaretakerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCaretakerName.Name = "lblCaretakerName";
-            this.lblCaretakerName.Size = new System.Drawing.Size(408, 16);
+            this.lblCaretakerName.Size = new System.Drawing.Size(816, 31);
             this.lblCaretakerName.TabIndex = 0;
             this.lblCaretakerName.Text = "Nome do Cuidador:";
             // 
             // ListCaretaker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 523);
+            this.ClientSize = new System.Drawing.Size(1356, 1006);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ListCaretaker";
             this.Text = "Listar";
             this.Load += new System.EventHandler(this.ListCaretaker_Load);

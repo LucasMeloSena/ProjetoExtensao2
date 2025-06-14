@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eduflow.utils.database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,5 +28,28 @@ namespace Eduflow.views.Admin.Caretaker
             this.Close();
             lastForm.Show();
         }
+
+        private void ListCaretaker_Load(object sender, EventArgs e)
+        {
+            searchCaretaker(caretakerId);
+        }
+
+        private void searchCaretaker(string caretakerId)
+        {
+            try
+            {
+                CaretakerBd caretakerBd = new CaretakerBd();
+                models.Caretaker caretaker = caretakerBd.getCaretakerFlexible(caretakerId);
+                UserBd userBd = new UserBd();
+
+                txtCaretakerName.Text = caretaker.name;
+                txtCaretakerRegistration.Text = caretaker.registration;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Caretaker not found");
+            }
+        }
+
     }
 }

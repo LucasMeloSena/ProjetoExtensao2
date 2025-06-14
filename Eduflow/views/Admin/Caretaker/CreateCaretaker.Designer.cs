@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCaretakerEmail = new System.Windows.Forms.TextBox();
+            this.txtCaretakerPassword = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.txtCaretakerId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCaretakerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCaretakerEmail = new System.Windows.Forms.TextBox();
-            this.txtCaretakerPassword = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastro de Cuidador";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(43, 326);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Senha do Cuidador:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(43, 263);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Email do Cuidador:";
+            // 
+            // txtCaretakerEmail
+            // 
+            this.txtCaretakerEmail.Location = new System.Drawing.Point(46, 291);
+            this.txtCaretakerEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCaretakerEmail.Multiline = true;
+            this.txtCaretakerEmail.Name = "txtCaretakerEmail";
+            this.txtCaretakerEmail.Size = new System.Drawing.Size(492, 23);
+            this.txtCaretakerEmail.TabIndex = 11;
+            // 
+            // txtCaretakerPassword
+            // 
+            this.txtCaretakerPassword.Location = new System.Drawing.Point(46, 355);
+            this.txtCaretakerPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCaretakerPassword.Multiline = true;
+            this.txtCaretakerPassword.Name = "txtCaretakerPassword";
+            this.txtCaretakerPassword.PasswordChar = '*';
+            this.txtCaretakerPassword.Size = new System.Drawing.Size(492, 23);
+            this.txtCaretakerPassword.TabIndex = 10;
             // 
             // btnSalvar
             // 
@@ -125,46 +166,6 @@
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do Cuidador:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 326);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Senha do Cuidador:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 263);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 17);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Email do Cuidador:";
-            // 
-            // txtCaretakerEmail
-            // 
-            this.txtCaretakerEmail.Location = new System.Drawing.Point(46, 291);
-            this.txtCaretakerEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCaretakerEmail.Multiline = true;
-            this.txtCaretakerEmail.Name = "txtCaretakerEmail";
-            this.txtCaretakerEmail.Size = new System.Drawing.Size(492, 23);
-            this.txtCaretakerEmail.TabIndex = 11;
-            // 
-            // txtCaretakerPassword
-            // 
-            this.txtCaretakerPassword.Location = new System.Drawing.Point(46, 355);
-            this.txtCaretakerPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCaretakerPassword.Multiline = true;
-            this.txtCaretakerPassword.Name = "txtCaretakerPassword";
-            this.txtCaretakerPassword.Size = new System.Drawing.Size(492, 23);
-            this.txtCaretakerPassword.TabIndex = 10;
             // 
             // CreateCaretaker
             // 

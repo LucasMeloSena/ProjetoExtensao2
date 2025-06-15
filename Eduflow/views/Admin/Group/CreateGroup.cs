@@ -30,6 +30,12 @@ namespace Eduflow.views.Admin.Group
             string name = txtGroupName.Text;
             string id = Guid.NewGuid().ToString();
 
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 models.Group group = new models.Group(

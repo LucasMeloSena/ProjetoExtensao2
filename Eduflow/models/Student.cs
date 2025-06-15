@@ -33,5 +33,29 @@ namespace Eduflow.models
             this.registrationDate = registrationDate;
             this.classId = classId;
         }
+
+        public string verifyEmptyField()
+        {
+            if (name == "")
+            {
+                return "nome";
+            }
+            else if (age == 0)
+            {
+                return "idade";
+            } else if (disabilities == "")
+            {
+                return "deficiência";
+            } else if (restrictions == "")
+            {
+                return "restrições";
+            } else if (registration == "")
+            {
+                return "matricula";
+            } else
+            {
+                return null;
+            }
+        }
     }
 }

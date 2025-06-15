@@ -47,6 +47,12 @@ namespace Eduflow.views.Admin.LogbookType
                 name
             );
 
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 logbookTypeBd.updateLogbookType(logbookTypeToUpdate);

@@ -28,5 +28,25 @@ namespace Eduflow.models
             this.studentId = studentId;
             this.studentName = studentName;
         }
+
+        public string searchEmptyFields()
+        {
+            if (observation == "")
+            {
+                return "observação";
+            } else if (observationTypeId == "" || observationTypeId == null)
+            {
+                return "categoria observação";
+            } else if (caretakerId == "" || caretakerId == null)
+            {
+                return "cuidador";
+            } else if (studentId == "" || studentId == null)
+            {
+                return "aluno";
+            } else
+            {
+                return null;
+            }
+        }
     }
 }

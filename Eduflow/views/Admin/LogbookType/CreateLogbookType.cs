@@ -28,6 +28,12 @@ namespace Eduflow.views.Admin.LogbookType
             string name = txtCategoryName.Text;
             string id = Guid.NewGuid().ToString();
 
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 models.LogbookType logbookType = new models.LogbookType(

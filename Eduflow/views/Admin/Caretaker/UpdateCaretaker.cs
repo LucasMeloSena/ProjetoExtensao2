@@ -50,6 +50,17 @@ namespace Eduflow.views.Admin.Caretaker
                 existingCaretaker.userId
             );
 
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (registration == "")
+            {
+                MessageBox.Show("Campo matricula invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 caretakerBd.updateCaretaker(updatedCaretaker);

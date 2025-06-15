@@ -41,7 +41,25 @@ namespace Eduflow.views.Admin.Caretaker
             string email = txtCaretakerEmail.Text;
             string password = txtCaretakerPassword.Text;
 
-            string id = Guid.NewGuid().ToString();
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } else if (registration == "")
+            {
+                MessageBox.Show("Campo matricula invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } else if (email == "")
+            {
+                MessageBox.Show("Campo email invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } else if (password == "")
+            {
+                MessageBox.Show("Campo senha invalido! Por favor, preencha corretamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+                string id = Guid.NewGuid().ToString();
 
             try
             {

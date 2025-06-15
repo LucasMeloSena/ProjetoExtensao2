@@ -53,6 +53,12 @@ namespace Eduflow.views.Admin.Group
                 name
             );
 
+            if (name == "")
+            {
+                MessageBox.Show("Campo nome invalido! Por favor, preencha corretamente!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 groupBd.updateGroup(groupToUpdate);

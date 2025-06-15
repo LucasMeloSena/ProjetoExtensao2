@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Eduflow.models;
 using Eduflow.utils.database;
 using Eduflow.utils.enums;
 
@@ -50,12 +43,30 @@ namespace Eduflow.views.Admin.Student
         {
             string name = txtStudentName.Text;
             string registration = txtStudentId.Text;
-            int age = int.Parse(txtStudentAge.Text);
+            bool ageSuccess = int.TryParse(txtStudentAge.Text, out int age);
+            if (!ageSuccess)
+            {
+                MessageBox.Show("Campo idade invalido! Por favor, preencha corretamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DateTime bornDate = inputBornDate.Value;
             DateTime registerDate = inputRegisterDate.Value;
             string restrictions = txtStudentRestrictions.Text;
+
+            if (cmbGenre.Text == "")
+            {
+                MessageBox.Show("Campo genero invalido! Por favor, preencha corretamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string genreStr = cmbGenre.Text;
             string disabilities = txtStudentDisabilities.Text;
+
+            if (cmbGroup.SelectedValue == null)
+            {
+                MessageBox.Show("Campo turma invalido! Por favor, preencha corretamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string groupId = cmbGroup.SelectedValue.ToString();
 
             Genre genre = (Genre)Enum.Parse(typeof(Genre), genreStr, true);
@@ -72,6 +83,12 @@ namespace Eduflow.views.Admin.Student
                 registerDate,
                 groupId
             );
+
+            string emptyField = student.verifyEmptyField();
+            if (emptyField != null) {
+                MessageBox.Show($"Campo {emptyField} invalido! Por favor, preencha corretamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {

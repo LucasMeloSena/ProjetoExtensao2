@@ -74,9 +74,16 @@ namespace Eduflow.views.Admin.Logbook
             string studentId = cmbStudent.SelectedValue.ToString();
             string studentName = ((models.Student)cmbStudent.SelectedItem).name;
 
+            models.Logbook logbook = new models.Logbook(logbookId, observationDate, observation, observationType, caretakerId, caretakerName, studentId, studentName);
+            string emptyField = logbook.searchEmptyFields();
+            if (emptyField != null)
+            {
+                MessageBox.Show($"Campo {emptyField} invalido. Por favor, preencha corretamente.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                models.Logbook logbook = new models.Logbook(logbookId, observationDate, observation, observationType, caretakerId, caretakerName, studentId, studentName);
                 LogbookBd logbookBd = new LogbookBd();
                 logbookBd.updateLogbook(logbook);
                 MessageBox.Show("Diario de Bordo atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Eduflow.models;
+using Eduflow.utils.database;
 
 namespace Eduflow.views.Caretaker
 {
     public partial class RegisterLogbookCaretaker : Form
     {
-        private Form lastForm;
+        private LogbookReportCaretaker lastForm;
+        private string caretakerId;
 
-        public RegisterLogbookCaretaker(Form lastForm)
+        public RegisterLogbookCaretaker(LogbookReportCaretaker lastForm, string caretakerId)
         {
             InitializeComponent();
             this.lastForm = lastForm;
+            this.caretakerId = caretakerId;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -27,7 +31,46 @@ namespace Eduflow.views.Caretaker
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string id = Guid.NewGuid().ToString();
+            DateTime observationDate = inputObservationDate.Value;
+            string observation = txtObservation.Text;
+            string observationType = cmbObservationType.SelectedValue.ToString();
+            string studentId = cmbStudent.SelectedValue.ToString();
+            string studentName = ((models.Student)cmbStudent.SelectedItem).name;
+
+            try
+            {
+                models.Logbook logbook = new models.Logbook(id, observationDate, observation, observationType, caretakerId, null, studentId, studentName);
+                LogbookBd logbookBd = new LogbookBd();
+                logbookBd.insertLogbook(logbook);
+                MessageBox.Show("Diario de Bordo cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lastForm.searchLogbooks();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegisterLogbookCaretaker_Load(object sender, EventArgs e)
+        {
+            inputObservationDate.Value = DateTime.Now;
+            inputObservationDate.MinDate = DateTime.Now;
+            inputObservationDate.Format = DateTimePickerFormat.Custom;
+            inputObservationDate.CustomFormat = "dd/MM/yyyy";
+
+            LogbookTypeBd logbookTypeBd = new LogbookTypeBd();
+            List<LogbookType> logbookTypes = logbookTypeBd.getLogbookTypes();
+            cmbObservationType.DataSource = logbookTypes;
+            cmbObservationType.DisplayMember = "name";
+            cmbObservationType.ValueMember = "id";
+
+            StudentBd studentBd = new StudentBd();
+            List<models.Student> students = studentBd.getStudents();
+            cmbStudent.DataSource = students;
+            cmbStudent.DisplayMember = "name";
+            cmbStudent.ValueMember = "id";
         }
     }
 }

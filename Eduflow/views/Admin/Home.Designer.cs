@@ -44,6 +44,8 @@
             this.Observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caretaker = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGroup = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
@@ -87,7 +89,7 @@
             this.groupBox1.Controls.Add(this.lblSchool);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(469, 46);
+            this.groupBox1.Location = new System.Drawing.Point(489, 30);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(600, 403);
             this.groupBox1.TabIndex = 3;
@@ -173,7 +175,7 @@
             this.dataGridLogbookReport.ReadOnly = true;
             this.dataGridLogbookReport.RowHeadersWidth = 82;
             this.dataGridLogbookReport.RowTemplate.Height = 33;
-            this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
+            this.dataGridLogbookReport.Size = new System.Drawing.Size(1370, 371);
             this.dataGridLogbookReport.TabIndex = 17;
             // 
             // id
@@ -212,11 +214,35 @@
             this.Caretaker.Name = "Caretaker";
             this.Caretaker.ReadOnly = true;
             // 
+            // btnGroup
+            // 
+            this.btnGroup.Font = new System.Drawing.Font("Arial", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGroup.Location = new System.Drawing.Point(39, 440);
+            this.btnGroup.Name = "btnGroup";
+            this.btnGroup.Size = new System.Drawing.Size(303, 107);
+            this.btnGroup.TabIndex = 18;
+            this.btnGroup.Text = "Gerenciamento de Turmas";
+            this.btnGroup.UseVisualStyleBackColor = true;
+            this.btnGroup.Click += new System.EventHandler(this.btnGroup_Click);
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.Font = new System.Drawing.Font("Arial", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.Location = new System.Drawing.Point(1023, 456);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(303, 107);
+            this.btnCategory.TabIndex = 19;
+            this.btnCategory.Text = "Gerenciamento Categorias Diario";
+            this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 1006);
+            this.ClientSize = new System.Drawing.Size(1370, 1006);
+            this.Controls.Add(this.btnCategory);
+            this.Controls.Add(this.btnGroup);
             this.Controls.Add(this.dataGridLogbookReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
@@ -254,5 +280,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Observation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caretaker;
+        private System.Windows.Forms.Button btnGroup;
+        private System.Windows.Forms.Button btnCategory;
     }
 }

@@ -64,7 +64,7 @@ namespace Eduflow.views.Caretaker
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            RegisterLogbookCaretaker createLogbook = new RegisterLogbookCaretaker(this);
+            RegisterLogbookCaretaker createLogbook = new RegisterLogbookCaretaker(this, caretaker.id);
             createLogbook.ShowDialog();
         }
     }

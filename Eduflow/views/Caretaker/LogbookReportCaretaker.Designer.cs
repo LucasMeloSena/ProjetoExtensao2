@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridLogbookReport = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblStudentName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -37,9 +40,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogbookReport)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +66,28 @@
             this.dataGridLogbookReport.RowTemplate.Height = 33;
             this.dataGridLogbookReport.Size = new System.Drawing.Size(1356, 371);
             this.dataGridLogbookReport.TabIndex = 22;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.MinimumWidth = 10;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // RegistrationDate
+            // 
+            this.RegistrationDate.HeaderText = "Data de Registro";
+            this.RegistrationDate.MinimumWidth = 10;
+            this.RegistrationDate.Name = "RegistrationDate";
+            this.RegistrationDate.ReadOnly = true;
+            // 
+            // Observation
+            // 
+            this.Observation.HeaderText = "Observação";
+            this.Observation.MinimumWidth = 10;
+            this.Observation.Name = "Observation";
+            this.Observation.ReadOnly = true;
             // 
             // lblStudentName
             // 
@@ -143,6 +165,7 @@
             this.btnAdicionar.TabIndex = 18;
             this.btnAdicionar.Text = "Adicionar Observacao";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnVoltar
             // 
@@ -154,28 +177,7 @@
             this.btnVoltar.TabIndex = 17;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.MinimumWidth = 10;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // RegistrationDate
-            // 
-            this.RegistrationDate.HeaderText = "Data de Registro";
-            this.RegistrationDate.MinimumWidth = 10;
-            this.RegistrationDate.Name = "RegistrationDate";
-            this.RegistrationDate.ReadOnly = true;
-            // 
-            // Observation
-            // 
-            this.Observation.HeaderText = "Observação";
-            this.Observation.MinimumWidth = 10;
-            this.Observation.Name = "Observation";
-            this.Observation.ReadOnly = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // LogbookReportCaretaker
             // 

@@ -35,7 +35,7 @@ namespace Eduflow.views.Admin.Logbook
             models.Logbook logbook = logbookBd.getLogbookById(logbookId);
 
             LogbookTypeBd logbookTypeBd = new LogbookTypeBd();
-            List<LogbookType> logbookTypes = logbookTypeBd.getLogbookTypes();
+            List<models.LogbookType> logbookTypes = logbookTypeBd.getLogbookTypes();
             cmbObservationType.DataSource = logbookTypes;
             cmbObservationType.DisplayMember = "name";
             cmbObservationType.ValueMember = "id";

@@ -31,7 +31,7 @@ namespace Eduflow.views.Admin.Logbook
             inputObservationDate.CustomFormat = "dd/MM/yyyy";
 
             LogbookTypeBd logbookTypeBd = new LogbookTypeBd();
-            List<LogbookType> logbookTypes = logbookTypeBd.getLogbookTypes();
+            List<models.LogbookType> logbookTypes = logbookTypeBd.getLogbookTypes();
             cmbObservationType.DataSource = logbookTypes;
             cmbObservationType.DisplayMember = "name";
             cmbObservationType.ValueMember = "id";

@@ -1,17 +1,11 @@
-﻿using Eduflow.models;
-using Eduflow.utils.database;
+﻿using Eduflow.utils.database;
+using Eduflow.views.Admin.Group;
 using Eduflow.views.Admin.Logbook;
+using Eduflow.views.Admin.LogbookType;
 using Eduflow.views.Admin.Student;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace Eduflow.views
 {
@@ -73,12 +67,14 @@ namespace Eduflow.views
 
         private void btnGroup_Click(object sender, EventArgs e)
         {
-
+            HomeGroup homeGroup = new HomeGroup(this, admin);
+            homeGroup.ShowDialog();
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-
+            //HomeLogbookType homeLogbookType = new HomeLogbookType(this, admin);
+            //homeLogbookType.ShowDialog();
         }
     }
 }

@@ -148,6 +148,24 @@
     <Compile Include="views\Admin\Caretaker\UpdateCaretaker.Designer.cs">
       <DependentUpon>UpdateCaretaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Admin\Group\CreateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Group\CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Group\HomeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Group\HomeGroup.Designer.cs">
+      <DependentUpon>HomeGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\Group\UpdateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\Group\UpdateGroup.Designer.cs">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Admin\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +177,24 @@
     </Compile>
     <Compile Include="views\Admin\Caretaker\HomeCaretakerAdmin.Designer.cs">
       <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\CreateLogbookType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\CreateLogbookType.Designer.cs">
+      <DependentUpon>CreateLogbookType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\HomeLogbookType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\HomeLogbookType.Designer.cs">
+      <DependentUpon>HomeLogbookType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\UpdateLogbookType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Admin\LogbookType\UpdateLogbookType.Designer.cs">
+      <DependentUpon>UpdateLogbookType.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Admin\Logbook\RegisterLogbook.cs">
       <SubType>Form</SubType>
@@ -248,6 +284,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Caretaker\UpdateCaretaker.resx">
       <DependentUpon>UpdateCaretaker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Group\CreateGroup.resx">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Group\HomeGroup.resx">
+      <DependentUpon>HomeGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\Group\UpdateGroup.resx">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

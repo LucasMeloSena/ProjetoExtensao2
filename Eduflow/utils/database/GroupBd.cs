@@ -65,5 +65,37 @@ namespace Eduflow.utils.database
                 }
             }
         }
+
+        public void insertGroup(Group group)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "INSERT INTO Turma (id, nome) VALUES (@id, @nome)";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", group.id);
+                    cmd.Parameters.AddWithValue("@nome", group.name);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void updateGroup(Group group)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "UPDATE Turma SET nome = @nome WHERE id = @id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", group.id);
+                    cmd.Parameters.AddWithValue("@nome", group.name);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

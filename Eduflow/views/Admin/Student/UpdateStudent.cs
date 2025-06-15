@@ -16,7 +16,7 @@ namespace Eduflow.views.Admin.Student
     public partial class UpdateStudent: Form
     {
         private StudentForm lastForm;
-        private List<Group> groups;
+        private List<models.Group> groups;
         private string studentId;
 
         public UpdateStudent(StudentForm lastForm, string studentId)

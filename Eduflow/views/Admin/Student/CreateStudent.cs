@@ -16,7 +16,7 @@ namespace Eduflow.views.Admin.Student
     public partial class CreateStudent: Form
     {
         private StudentForm lastForm;
-        private List<Group> groups;
+        private List<models.Group> groups;
 
         public CreateStudent(StudentForm lastForm)
         {

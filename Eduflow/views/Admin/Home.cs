@@ -73,8 +73,8 @@ namespace Eduflow.views
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            //HomeLogbookType homeLogbookType = new HomeLogbookType(this, admin);
-            //homeLogbookType.ShowDialog();
+            HomeLogbookType homeLogbookType = new HomeLogbookType(this, admin);
+            homeLogbookType.ShowDialog();
         }
     }
 }

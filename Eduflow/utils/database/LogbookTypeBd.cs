@@ -39,5 +39,60 @@ namespace Eduflow.utils.database
                 }
             }
         }
+
+        public LogbookType getLogbookType(string id)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM TipoObservacao where id = ?id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var name = reader["nome"].ToString();
+                            return new LogbookType(id, name);
+                        }
+                        throw new Exception("Logbook type not found");
+                    }
+                }
+            }
+        }
+
+        public void insertLogbookType(LogbookType logbookType)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "INSERT INTO TipoObservacao (id, nome) VALUES (@id, @nome)";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", logbookType.id);
+                    cmd.Parameters.AddWithValue("@nome", logbookType.name);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void updateLogbookType(LogbookType logbookType)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "UPDATE TipoObservacao SET nome = @nome WHERE id = @id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", logbookType.id);
+                    cmd.Parameters.AddWithValue("@nome", logbookType.name);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

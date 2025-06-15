@@ -300,6 +300,15 @@
     <EmbeddedResource Include="views\Admin\Caretaker\HomeCaretakerAdmin.resx">
       <DependentUpon>HomeCaretakerAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\LogbookType\CreateLogbookType.resx">
+      <DependentUpon>CreateLogbookType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\LogbookType\HomeLogbookType.resx">
+      <DependentUpon>HomeLogbookType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Admin\LogbookType\UpdateLogbookType.resx">
+      <DependentUpon>UpdateLogbookType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Admin\Logbook\RegisterLogbook.resx">
       <DependentUpon>RegisterLogbook.cs</DependentUpon>
     </EmbeddedResource>

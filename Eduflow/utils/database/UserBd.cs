@@ -10,23 +10,23 @@ namespace Eduflow.utils.database
     {
         private database.Conn db;
 
-        public User getUser(String email, String password)
+        public User getUser(String email)
         {
             db = new database.Conn();
             using (var conn = new MySqlConnection(db.getConnectionString()))
             {
                 conn.Open();
-                string query = "SELECT * FROM Usuario where email = ?email and senha = ?password";
+                string query = "SELECT * FROM Usuario where email = ?email";
                 using (var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("?email", email);
-                    cmd.Parameters.AddWithValue("?password", password);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             string userId = reader["id"].ToString();
                             string type = reader["tipo"].ToString();
+                            string password = reader["senha"].ToString();
                             UserType userType = (UserType)Enum.Parse(typeof(UserType), type.ToUpper());
 
                             return new User(userId, email, password, userType);

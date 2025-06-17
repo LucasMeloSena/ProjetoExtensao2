@@ -40,7 +40,13 @@ namespace Eduflow
                 try
                 {
                     UserBd userBd = new UserBd();
-                    User user = userBd.getUser(email, password);
+                    User user = userBd.getUser(email);
+                    bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.password);
+                    if (!isPasswordValid) {
+                        MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
                     LoginLog loginLog = new LoginLog(Guid.NewGuid().ToString(), DateTime.Now, user.id);
                     userBd.insertIntoLogs(loginLog);
 

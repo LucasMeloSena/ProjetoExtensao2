@@ -40,6 +40,7 @@ namespace Eduflow.views.Admin.Caretaker
 
             string email = txtCaretakerEmail.Text;
             string password = txtCaretakerPassword.Text;
+            string passwordHashed = BCrypt.Net.BCrypt.HashPassword(password);
 
             if (name == "")
             {
@@ -59,12 +60,12 @@ namespace Eduflow.views.Admin.Caretaker
                 return;
             }
 
-                string id = Guid.NewGuid().ToString();
+            string id = Guid.NewGuid().ToString();
 
             try
             {
                 UserType userType = UserType.CARETAKER;
-                User user = new User(null, email, password, userType);
+                User user = new User(null, email, passwordHashed, userType);
                 string idUsuario = userBd.insertUser(user);
 
                 Eduflow.models.Caretaker caretaker = new Eduflow.models.Caretaker(

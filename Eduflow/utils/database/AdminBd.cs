@@ -36,5 +36,23 @@ namespace Eduflow.utils.database
                 }
             }
         }
+
+        public void insertAdmin(models.Admin admin)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "INSERT INTO Admin (id, nome, nome_escola, idUsuario) VALUES (@id, @nome, @nome_escola, @idUsuario)";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", admin.id);
+                    cmd.Parameters.AddWithValue("@nome", admin.name);
+                    cmd.Parameters.AddWithValue("@nome_escola", admin.schoolName);
+                    cmd.Parameters.AddWithValue("@idUsuario", admin.userId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

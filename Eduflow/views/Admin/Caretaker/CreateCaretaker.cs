@@ -65,14 +65,15 @@ namespace Eduflow.views.Admin.Caretaker
             try
             {
                 UserType userType = UserType.CARETAKER;
-                User user = new User(null, email, passwordHashed, userType);
-                string idUsuario = userBd.insertUser(user);
+                string userId = Guid.NewGuid().ToString();
+                User user = new User(userId, email, passwordHashed, userType);
+                userBd.insertUser(user);
 
                 Eduflow.models.Caretaker caretaker = new Eduflow.models.Caretaker(
                 id,
                 name,
                 registration,
-                idUsuario
+                userId
                 );
 
                 CaretakerBd caretakerBd = new CaretakerBd();

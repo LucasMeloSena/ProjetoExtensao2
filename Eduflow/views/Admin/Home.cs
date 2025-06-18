@@ -1,4 +1,5 @@
 ﻿using Eduflow.utils.database;
+using Eduflow.views.Admin;
 using Eduflow.views.Admin.Group;
 using Eduflow.views.Admin.Logbook;
 using Eduflow.views.Admin.LogbookType;
@@ -75,6 +76,12 @@ namespace Eduflow.views
         {
             HomeLogbookType homeLogbookType = new HomeLogbookType(this, admin);
             homeLogbookType.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CreateAdmin createAdmin = new CreateAdmin(this, admin);
+            createAdmin.ShowDialog();
         }
     }
 }

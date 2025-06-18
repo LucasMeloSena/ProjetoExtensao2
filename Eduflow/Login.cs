@@ -33,7 +33,7 @@ namespace Eduflow
 
             if (email == null || email == "" || password == null || password == "")
             {
-                MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
             else
             {
@@ -41,9 +41,15 @@ namespace Eduflow
                 {
                     UserBd userBd = new UserBd();
                     User user = userBd.getUser(email);
+                    if (user == null)
+                    {
+                        MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.password);
                     if (!isPasswordValid) {
-                        MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Usuario ou Senha invalidos!", "Informacao", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 

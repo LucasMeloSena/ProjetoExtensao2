@@ -17,6 +17,9 @@ namespace Eduflow.views.Admin.Caretaker
         private HomeCaretakerAdmin lastForm;
         private string caretakerId;
 
+        CaretakerBd caretakerBd = new CaretakerBd();
+        UserBd userBd = new UserBd();
+
         public UpdateCaretaker(HomeCaretakerAdmin lastForm, string caretakerId)
         {
             InitializeComponent();
@@ -33,8 +36,17 @@ namespace Eduflow.views.Admin.Caretaker
         {
             string name = txtNewCaretakerName.Text;
             string registration = txtNewCaretakerId.Text;
+            string email = txtCaretakerEmail.Text;
+            string password = txtCaretakerPassword.Text;
 
-            CaretakerBd caretakerBd = new CaretakerBd();
+            if (password == "")
+            {
+                MessageBox.Show("O preenchimento da senha é obrigatorio.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
             models.Caretaker existingCaretaker = caretakerBd.getCaretakerById(caretakerId);
 
             if (existingCaretaker == null)
@@ -49,6 +61,7 @@ namespace Eduflow.views.Admin.Caretaker
                 registration,
                 existingCaretaker.userId
             );
+            models.User userToUpdate = new models.User(existingCaretaker.userId, email, hashedPassword, utils.enums.UserType.CARETAKER);
 
             if (name == "")
             {
@@ -64,7 +77,9 @@ namespace Eduflow.views.Admin.Caretaker
             try
             {
                 caretakerBd.updateCaretaker(updatedCaretaker);
+                userBd.updateUser(userToUpdate);
                 MessageBox.Show("Cuidador atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 lastForm.searchCaretakersAndFillDataGrid();
                 this.Close();
             }
@@ -77,9 +92,8 @@ namespace Eduflow.views.Admin.Caretaker
 
         private void searchCaretaker(string caretakerId)
         {
-            CaretakerBd caretakerBd = new CaretakerBd();
             models.Caretaker caretaker = caretakerBd.getCaretakerById(caretakerId);
-
+            models.User user = userBd.getUserById(caretaker.userId);
 
             if (caretaker == null)
             {
@@ -89,6 +103,7 @@ namespace Eduflow.views.Admin.Caretaker
 
             txtNewCaretakerName.Text = caretaker.name;
             txtNewCaretakerId.Text = caretaker.registration;
+            txtCaretakerEmail.Text = user.email;
         }
 
         private void UpdateCaretaker_Load(object sender, EventArgs e)

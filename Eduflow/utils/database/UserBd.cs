@@ -10,7 +10,7 @@ namespace Eduflow.utils.database
     {
         private database.Conn db;
 
-        public User getUser(String email)
+        public User getUser(string email)
         {
             db = new database.Conn();
             using (var conn = new MySqlConnection(db.getConnectionString()))
@@ -26,6 +26,34 @@ namespace Eduflow.utils.database
                         {
                             string userId = reader["id"].ToString();
                             string type = reader["tipo"].ToString();
+                            string password = reader["senha"].ToString();
+                            UserType userType = (UserType)Enum.Parse(typeof(UserType), type.ToUpper());
+
+                            return new User(userId, email, password, userType);
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public User getUserById(string id)
+        {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Usuario where id = ?id";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("?id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string userId = reader["id"].ToString();
+                            string type = reader["tipo"].ToString();
+                            string email = reader["email"].ToString();
                             string password = reader["senha"].ToString();
                             UserType userType = (UserType)Enum.Parse(typeof(UserType), type.ToUpper());
 
@@ -68,6 +96,22 @@ namespace Eduflow.utils.database
                     cmd.Parameters.AddWithValue("?id", loginLog.id);
                     cmd.Parameters.AddWithValue("?data_login", loginLog.loginDate);
                     cmd.Parameters.AddWithValue("?idUsuario", loginLog.idUser);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void updateUser(User user) {
+            db = new database.Conn();
+            using (var conn = new MySqlConnection(db.getConnectionString()))
+            {
+                conn.Open();
+                string query = "UPDATE Usuario SET email = @email, senha = @senha WHERE id = @id;";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", user.id);
+                    cmd.Parameters.AddWithValue("@email", user.email);
+                    cmd.Parameters.AddWithValue("@senha", user.password);
                     cmd.ExecuteNonQuery();
                 }
             }

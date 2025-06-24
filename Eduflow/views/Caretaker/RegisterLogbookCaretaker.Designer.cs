@@ -130,7 +130,7 @@
             this.inputObservationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.inputObservationDate.Location = new System.Drawing.Point(123, 121);
             this.inputObservationDate.MaxDate = new System.DateTime(2025, 6, 23, 0, 0, 0, 0);
-            this.inputObservationDate.MinDate = new System.DateTime(2025, 6, 9, 0, 0, 0, 0);
+            this.inputObservationDate.MinDate = new System.DateTime(2025, 2, 3, 0, 0, 0, 0);
             this.inputObservationDate.Name = "inputObservationDate";
             this.inputObservationDate.Size = new System.Drawing.Size(352, 38);
             this.inputObservationDate.TabIndex = 18;

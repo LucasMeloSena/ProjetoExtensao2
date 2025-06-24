@@ -27,7 +27,7 @@ namespace Eduflow.views.Admin.Logbook
 
         private void UpdateLogbook_Load(object sender, EventArgs e)
         {
-            inputObservationDate.MinDate = DateTime.Now;
+            inputObservationDate.MaxDate = DateTime.Now;
             inputObservationDate.Format = DateTimePickerFormat.Custom;
             inputObservationDate.CustomFormat = "dd/MM/yyyy";
 

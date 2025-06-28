@@ -37,8 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridCaretakers = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Expandir = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
@@ -52,9 +52,9 @@
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(344, 69);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(600, 404);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -84,7 +84,7 @@
             this.pictureBox1.Image = global::Eduflow.Properties.Resources.profile;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(184, 54);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(224, 225);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +95,7 @@
             // 
             this.btnSair.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(1056, 31);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(4);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(272, 52);
             this.btnSair.TabIndex = 5;
@@ -107,7 +107,7 @@
             // 
             this.btnAddCaretaker.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCaretaker.Location = new System.Drawing.Point(1056, 87);
-            this.btnAddCaretaker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCaretaker.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCaretaker.Name = "btnAddCaretaker";
             this.btnAddCaretaker.Size = new System.Drawing.Size(272, 52);
             this.btnAddCaretaker.TabIndex = 6;
@@ -135,14 +135,14 @@
             this.dataGridCaretakers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCaretakers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.Matricula,
             this.Nome,
+            this.Matricula,
             this.Expandir,
             this.Editar});
             this.dataGridCaretakers.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridCaretakers.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridCaretakers.Location = new System.Drawing.Point(0, 635);
-            this.dataGridCaretakers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridCaretakers.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridCaretakers.Name = "dataGridCaretakers";
             this.dataGridCaretakers.ReadOnly = true;
             this.dataGridCaretakers.RowHeadersWidth = 82;
@@ -159,19 +159,19 @@
             this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
-            // Matricula
-            // 
-            this.Matricula.HeaderText = "Matricula";
-            this.Matricula.MinimumWidth = 10;
-            this.Matricula.Name = "Matricula";
-            this.Matricula.ReadOnly = true;
-            // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.MinimumWidth = 10;
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
+            // 
+            // Matricula
+            // 
+            this.Matricula.HeaderText = "Matricula";
+            this.Matricula.MinimumWidth = 10;
+            this.Matricula.Name = "Matricula";
+            this.Matricula.ReadOnly = true;
             // 
             // Expandir
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.btnAddCaretaker);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomeCaretakerAdmin";
             this.Text = "Admin - Cuidador";
             this.Load += new System.EventHandler(this.Caretaker_Load);
@@ -220,8 +220,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridCaretakers;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Matricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Matricula;
         private System.Windows.Forms.DataGridViewButtonColumn Expandir;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
     }

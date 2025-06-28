@@ -103,7 +103,7 @@ namespace Eduflow.views.Admin.Student
             Genre genre = (Genre)Enum.Parse(typeof(Genre), genreStr, true);
 
             models.Student student = new models.Student(
-                Guid.NewGuid().ToString(),
+                studentId,
                 name,
                 age,
                 genre,

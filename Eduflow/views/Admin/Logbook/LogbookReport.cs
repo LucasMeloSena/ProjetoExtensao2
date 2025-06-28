@@ -64,6 +64,7 @@ namespace Eduflow.views.Admin.Logbook
         private void dataGridLogbookReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            if (dataGridLogbookReport.Rows.Count == 0) return;
 
             string columnName = dataGridLogbookReport.Columns[e.ColumnIndex].Name;
             var id = dataGridLogbookReport.Rows[e.RowIndex].Cells["id"].Value;

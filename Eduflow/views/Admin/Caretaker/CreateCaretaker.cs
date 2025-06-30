@@ -64,19 +64,27 @@ namespace Eduflow.views.Admin.Caretaker
 
             try
             {
+                CaretakerBd caretakerBd = new CaretakerBd();
+                List<models.Caretaker> caretakers = caretakerBd.getCaretakers();
+
+                if (caretakers.Find(c => c.registration == registration) != null) {
+                    MessageBox.Show("Ja existe um cuidador com a matricula informada!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 UserType userType = UserType.CARETAKER;
                 string userId = Guid.NewGuid().ToString();
+
                 User user = new User(userId, email, passwordHashed, userType);
                 userBd.insertUser(user);
 
                 Eduflow.models.Caretaker caretaker = new Eduflow.models.Caretaker(
-                id,
-                name,
-                registration,
-                userId
+                    id,
+                    name,
+                    registration,
+                    userId
                 );
 
-                CaretakerBd caretakerBd = new CaretakerBd();
                 caretakerBd.insertCaretaker(caretaker);
 
                 MessageBox.Show("Cuidador cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
